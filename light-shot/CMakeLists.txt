@@ -19,7 +19,10 @@ qt_add_qml_module(
   1.0
   QML_FILES
   MainWindow.qml
-  SOURCES)
+  SOURCES
+  screenshotprovider.h
+  screenshotprovider.cpp
+  globalvalues.h)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 
