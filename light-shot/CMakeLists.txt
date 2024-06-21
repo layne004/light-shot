@@ -21,6 +21,7 @@ qt_add_qml_module(
   MainWindow.qml
   MainButtons.qml
   MainActions.qml
+  CaptureWindow.qml
   SOURCES
   screenshotprovider.h
   globalvalues.h

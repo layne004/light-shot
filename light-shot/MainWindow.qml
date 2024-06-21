@@ -7,6 +7,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Qt.labs.platform
 // import lightshot
 
 ApplicationWindow {
@@ -92,5 +93,36 @@ ApplicationWindow {
 
     MainActions{
         id:actions
+        rectRegion.onTriggered: loader.source = "CaptureWindow.qml"
     }
+
+    Loader{
+        id:loader
+        onLoaded: {
+            item.closing.connect(function(){
+                loader.source = ""
+            })
+        }
+    }
+
+    SystemTrayIcon{
+        id:sysTray
+        visible: true
+        icon.source: "file:///root/learn-git/github/light-shot/light-shot/img/lightshot.ico"
+
+        //此处的MenuItem是Qt.labs的，所以没有action property
+        menu: Menu{
+            MenuItem{
+                text: qsTr("Quit")
+                onTriggered: Qt.quit();
+            }
+        }
+
+        onActivated: {
+            //todo 调用rectRegion
+        }
+
+        Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
+    }
+
 }
