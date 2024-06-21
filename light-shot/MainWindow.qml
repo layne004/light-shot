@@ -11,20 +11,18 @@ import QtQuick.Layouts
 
 ApplicationWindow {
     id:mainWindow
-    width: 640
-    height: 480
+    width: 740
+    height: 580
     visible: true
     title: qsTr("lightshot")
 
     header: ToolBar{
         RowLayout{
             ToolButton{
-                id:_save
-                text: "1"
+                action: actions.save
             }
             ToolButton{
-                id:_saveAs
-                text: "2"
+                action: actions.saveAs
             }
         }
     }
@@ -49,7 +47,7 @@ ApplicationWindow {
         }
         Rectangle{
             id:mw_toolItem
-            Layout.preferredWidth: 200
+            Layout.preferredWidth: 250
             Layout.fillHeight: true
             color: "#fcfcfc"
             border.color: "#d2d2d2"
@@ -63,19 +61,19 @@ ApplicationWindow {
                     ColumnLayout{
                         anchors.fill: parent
                         MainButtons{
-
+                            action: actions.rectRegion
                         }
                         MainButtons{
-
+                            action: actions.irreguler
                         }
                         MainButtons{
-
+                            action: actions.fullscreen
                         }
                         MainButtons{
-
+                            action: actions.activeWindow
                         }
                         MainButtons{
-
+                            action: actions.windowUnderCursor
                         }
                     }
                 }
@@ -85,11 +83,14 @@ ApplicationWindow {
                     Layout.fillHeight: true
                     ColumnLayout{
                         anchors.fill: parent
-                        CheckBox{text: "1";Layout.alignment: Qt.AlignTop}
+                        CheckBox{action: actions.defaultSave;Layout.alignment: Qt.AlignTop}
                     }
                 }
             }
         }
     }
 
+    MainActions{
+        id:actions
+    }
 }

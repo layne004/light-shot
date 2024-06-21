@@ -1,3 +1,7 @@
+/*
+ * author: CaiJiali
+ * date: 2024.06.21
+ */
 #pragma once
 
 #include <QString>
