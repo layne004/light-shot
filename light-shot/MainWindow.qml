@@ -34,11 +34,18 @@ ApplicationWindow {
         anchors.fill: parent
         spacing: 0
         Rectangle{
-            id:mw_image
+            id:mw_imageItem
             Layout.fillWidth: true
             Layout.fillHeight: true
             color: "white"
             border.color: "#d2d2d2"
+            Image{
+                id:mwImage
+                source: "image://screenshot/current"
+                fillMode: Image.PreserveAspectFit
+                anchors.fill: parent
+                anchors.margins: 5
+            }
         }
         Rectangle{
             id:mw_toolItem
@@ -55,25 +62,20 @@ ApplicationWindow {
                     title: qsTr("Screenshot")
                     ColumnLayout{
                         anchors.fill: parent
-                        Button{
-                            Layout.alignment: Qt.AlignHCenter
-                            text: "1"
+                        MainButtons{
+
                         }
-                        Button{
-                            Layout.alignment: Qt.AlignHCenter
-                            text: "1"
+                        MainButtons{
+
                         }
-                        Button{
-                            Layout.alignment: Qt.AlignHCenter
-                            text: "1"
+                        MainButtons{
+
                         }
-                        Button{
-                            Layout.alignment: Qt.AlignHCenter
-                            text: "1"
+                        MainButtons{
+
                         }
-                        Button{
-                            Layout.alignment: Qt.AlignHCenter
-                            text: "1"
+                        MainButtons{
+
                         }
                     }
                 }
