@@ -17,8 +17,12 @@ Window {
         fillMode: Image.PreserveAspectFit
     }
 
-    Item{
+    //InActive Region
+
+    SelectionRect{
+        id:selectRect
         focus: true
+        anchors.fill: parent
         Keys.onEscapePressed: close();
     }
 

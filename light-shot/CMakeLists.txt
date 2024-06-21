@@ -22,10 +22,13 @@ qt_add_qml_module(
   MainButtons.qml
   MainActions.qml
   CaptureWindow.qml
+  SelectionRect.qml
   SOURCES
   screenshotprovider.h
   globalvalues.h
-  globalvalues.cpp)
+  globalvalues.cpp
+  QML_FILES
+  lightshot.js)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 

@@ -9,6 +9,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Qt.labs.platform
 // import lightshot
+import "lightshot.js" as Controller
 
 ApplicationWindow {
     id:mainWindow
@@ -91,9 +92,18 @@ ApplicationWindow {
         }
     }
 
+    Timer{
+        id:rectTimer
+        interval: 300
+        repeat: false;
+        onTriggered: {
+            loader.source = "CaptureWindow.qml"
+        }
+    }
+
     MainActions{
         id:actions
-        rectRegion.onTriggered: loader.source = "CaptureWindow.qml"
+        rectRegion.onTriggered: Controller.selectRect()
     }
 
     Loader{
