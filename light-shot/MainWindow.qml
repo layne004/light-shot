@@ -92,6 +92,7 @@ ApplicationWindow {
         }
     }
 
+    //toOptimize 暂时使用Timer来防止截图包含主窗口
     Timer{
         id:rectTimer
         interval: 300

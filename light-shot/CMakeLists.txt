@@ -27,6 +27,8 @@ qt_add_qml_module(
   screenshotprovider.h
   globalvalues.h
   globalvalues.cpp
+  imagesaver.h
+  imagesaver.cpp
   QML_FILES
   lightshot.js)
 
