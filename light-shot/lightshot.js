@@ -4,9 +4,16 @@ function selectRect() {
 }
 
 
+function selectIrregular(){
+    mainWindow.hide();
+    // mainWindow.visible=false;
+    loader.source = "IrregularWindow.qml";
+}
 
-
-
+function onScreenshotCaptured(filepath){
+    mainWindow.mwImage.source=filepath;
+    mainWindow.show();
+}
 
 
 // SelectionRect's function

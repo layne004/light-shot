@@ -30,7 +30,9 @@ qt_add_qml_module(
   imagesaver.h
   imagesaver.cpp
   QML_FILES
-  lightshot.js)
+  lightshot.js
+  SOURCES irregularshot.h irregularshot.cpp
+  QML_FILES IrregularWindow.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 

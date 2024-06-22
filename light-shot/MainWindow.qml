@@ -105,6 +105,7 @@ ApplicationWindow {
     MainActions{
         id:actions
         rectRegion.onTriggered: Controller.selectRect()
+        irreguler.onTriggered: Controller.selectIrregular()
     }
 
     Loader{
@@ -134,6 +135,11 @@ ApplicationWindow {
         }
 
         Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
+    }
+
+    Connections{
+        target:IrregularShot
+        onScreenshotCaptured:Controller.onScreenshotCaptured(filepath)
     }
 
 }
