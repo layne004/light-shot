@@ -8,7 +8,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Qt.labs.platform
-// import lightshot
+import lightshot
 import "lightshot.js" as Controller
 
 ApplicationWindow {

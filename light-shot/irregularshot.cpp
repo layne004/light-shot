@@ -1,7 +1,7 @@
 /*
     author  :Hecuiying
     date    :2024.06.20
-    purpose :接受来自IrregularWindow的数据进行不规则形状的截图(未实现）
+    purpose :接受来自IrregularWindow的数据进行不规则形状的截图
 */
 
 #include "irregularshot.h"
@@ -15,8 +15,14 @@ IrregularShot::IrregularShot(QObject *parent)
     : QObject{parent}
 {}
 
-void IrregularShot::capture(QQuickItem *item, const QPolygon &polygon)
+void IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
 {
+    QPolygon qPolygon;
+    for (const QVariant &point : polygon) {
+        QVariantMap pointMap = point.toMap();
+        qPolygon << QPoint(pointMap["x"].toInt(), pointMap["y"].toInt());
+    }
+
     QSharedPointer<const QQuickItemGrabResult> grabResult = item->grabToImage();
 
     if (!grabResult) {
@@ -30,7 +36,7 @@ void IrregularShot::capture(QQuickItem *item, const QPolygon &polygon)
         resultImage.fill(Qt::transparent);
 
         QPainter painter(&resultImage);
-        painter.setClipRegion(QRegion(polygon));
+        painter.setClipRegion(QRegion(qPolygon));
         painter.drawImage(0, 0, grabbedImage);
         painter.end();
 

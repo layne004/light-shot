@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QPolygon>
 #include <QQuickItem>
+#include <QVariantList>
 #include <qqmlregistration.h>
 
 class IrregularShot : public QObject
@@ -18,7 +19,7 @@ class IrregularShot : public QObject
 public:
     explicit IrregularShot(QObject *parent = nullptr);
 
-    Q_INVOKABLE void capture(QQuickItem *item, const QPolygon &polygon);
+    Q_INVOKABLE void capture(QQuickItem *item, const QVariantList &polygon);
 
 signals:
     void screenshotCaptured(const QString &filepath);

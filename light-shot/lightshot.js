@@ -5,13 +5,15 @@ function selectRect() {
 
 
 function selectIrregular(){
+
+    mainWindow.visible=false;
     mainWindow.hide();
-    // mainWindow.visible=false;
     loader.source = "IrregularWindow.qml";
 }
 
 function onScreenshotCaptured(filepath){
-    mainWindow.mwImage.source=filepath;
+    mainWindow.mwImage.source="file://"+filepath;
+    mainWindow.visible=true;
     mainWindow.show();
 }
 

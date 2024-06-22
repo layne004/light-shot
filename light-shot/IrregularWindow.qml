@@ -1,7 +1,7 @@
 /*
     author  :Hecuiying
     date    :2024.06.20
-    purpose :获取鼠标圈定不规则图形的实时坐标，传给IrregularShot类（还未实现）
+    purpose :获取鼠标圈定不规则图形的实时坐标，传给IrregularShot类
 */
 
 import QtQuick
@@ -12,7 +12,7 @@ Window{
     id:irregularWindow
     flags: Qt.FramelessWindowHint
     visibility: ApplicationWindow.FullScreen
-    color: Qt.rgba(0,0,0,0.3)
+    // color: Qt.rgba(0,0,0,0.3)
 
     property var points:[]
 
@@ -56,29 +56,29 @@ Window{
         id:dHandler
         dragThreshold: 1
 
-        onActiveChanged: (mouse)=>{
+        onActiveChanged:(mouse)=> {
                              if(active){
-                                 // points=[];
+
                                  points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
                                  // console.log("in onActiveChanged:",dHandler.centroid.position.x,dHandler.centroid.position.y);
                                  // console.log("points in onActiveChanged:",points);
                              } else {
-                                 // console.log("in onReleased:",dHandler.centroid.position.x,dHandler.centroid.position.y);
-                                 // irregularShot.updateIrregularArea(points);
-                                 // irregularShot.setSourcePixmap("image://screenshot/current")
+
                                  points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
                                  canvas.requestPaint();
                                  if(points.length>2){
                                      var polygon=points.map(function(p){
                                          return Qt.point(p.x,p.y);
                                      });
-                                     IrregularShot.capture(iw_image,polygon);
+
+                                     irregularshot.capture(iw_image,polygon);
                                      irregularWindow.close();
                                  }
+
                              }
         }
 
-        onActiveTranslationChanged: (mouse)=>{
+        onActiveTranslationChanged:{
                                         if(active){
                                             // console.log("in onPositionChanged:",dHandler.centroid.position.x,dHandler.centroid.position.y);
                                             points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
@@ -94,4 +94,9 @@ Window{
     }
 
     Component.onCompleted: showFullScreen()
+
+
+    IrregularShot{
+        id:irregularshot
+    }
 }
