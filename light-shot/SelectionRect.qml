@@ -21,6 +21,97 @@ Item{
         border.width: 2
         border.color: "#00974A"
 
+        Pane{
+            id:tool
+            width: parent.width
+            height: 40
+            background: Rectangle{
+                anchors.fill: parent;
+                color: "transparent"
+            }
+
+            visible: rect.width>0?true:false;
+
+            anchors.top: rect.bottom
+            anchors.horizontalCenter: rect.horizontalCenter
+
+            //tool buttons
+            RowLayout{
+                id:rowlayout
+                spacing: 5
+                SelectAreaButtons{
+                    action: actions.pencil
+                    visible: !isResizing
+                    onVisibleChanged: {
+                        if(visible === true)
+                            animation.start();
+                    }
+                    onHoveredChanged: {
+                        Func.setPropagation(hovered);
+                    }
+                    //todo WithinBounds gesture
+                }
+                SelectAreaButtons{
+                    action: actions.line
+                    visible: !isResizing
+                    onVisibleChanged: {
+                        if(visible === true)
+                            animation.start();
+                    }
+                    onHoveredChanged: {
+                        Func.setPropagation(hovered);
+                    }
+                }
+                SelectAreaButtons{
+                    action: actions.square
+                    visible: !isResizing
+                    onVisibleChanged: {
+                        if(visible === true)
+                            animation.start();
+                    }
+                    onHoveredChanged: {
+                        Func.setPropagation(hovered);
+                    }
+                }
+                SelectAreaButtons{
+                    action: actions.circle
+                    visible: !isResizing
+                    onVisibleChanged: {
+                        if(visible === true)
+                            animation.start();
+                    }
+                    onHoveredChanged: {
+                        Func.setPropagation(hovered);
+                    }
+                }
+                //todo 'redo/undo'
+                SelectAreaButtons{
+                    action: actions.close
+                    visible: !isResizing
+                    onVisibleChanged: {
+                        if(visible === true)
+                            animation.start();
+                    }
+                    onHoveredChanged: {
+                        Func.setPropagation(hovered);
+                    }
+                }
+
+                SelectAreaButtons{
+                    action: actions.accept
+                    visible: !isResizing
+                    onVisibleChanged: {
+                        if(visible === true)
+                            animation.start();
+                    }
+                    onHoveredChanged: {
+                        Func.setPropagation(hovered);
+                    }
+                }
+
+            }
+
+        }
     }
 
     DragHandler{

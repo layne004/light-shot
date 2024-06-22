@@ -9,7 +9,9 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
 
-qt_add_executable(applight-shot main.cpp)
+set(CMAKE_AUTORCC ON)
+
+qt_add_executable(applight-shot resources.qrc main.cpp)
 
 qt_add_qml_module(
   applight-shot
@@ -23,6 +25,7 @@ qt_add_qml_module(
   MainActions.qml
   CaptureWindow.qml
   SelectionRect.qml
+  SelectAreaButtons.qml
   SOURCES
   screenshotprovider.h
   globalvalues.h
@@ -30,7 +33,8 @@ qt_add_qml_module(
   imagesaver.h
   imagesaver.cpp
   QML_FILES
-  lightshot.js)
+  lightshot.js
+  SelectionActions.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 

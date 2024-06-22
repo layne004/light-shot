@@ -8,6 +8,7 @@
 
 #include <QObject>
 #include <QQuickItem>
+#include "globalvalues.h"
 #include <qqmlregistration.h>
 
 class ImageSaver : public QObject
@@ -18,5 +19,19 @@ class ImageSaver : public QObject
 public:
     explicit ImageSaver(QObject *parent = nullptr);
 
-    Q_INVOKABLE void save(QQuickItem *item, QString filepath);
+    //tofix
+    //可以将qml端的'Image对象'保存成图片至本地, 默认全屏，也可矩形区域裁剪; 默认时间命名，也可自定义命名
+    Q_INVOKABLE void saveImage(QQuickItem *item,
+                               QRect area = QRect(),
+                               QString filepath = GlobalValues::DEF_FILENAME);
+
+    //重新截图并保存本地，可指定区域裁剪和自定义命名
+    Q_INVOKABLE void saveScreenshot(QRect clip = QRect(),
+                                    QString filename = GlobalValues::DEF_FILENAME);
+    //tofix
+    //将qml端的'Image对象'至'剪切板',默认是全部，可指定矩形区域裁剪
+    Q_INVOKABLE void saveImageToClip(QQuickItem *item, QRect area = QRect());
+
+    //重新截图并保存至剪切板，可指定区域裁剪
+    Q_INVOKABLE void saveScreenshotToClip(QRect area = QRect());
 };
