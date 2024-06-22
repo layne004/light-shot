@@ -15,10 +15,11 @@ Window{
     // color: Qt.rgba(0,0,0,0.3)
 
     property var points:[]
+    // property alias irregularshot: irregularshot
 
     Image {
         id: iw_image
-        source: "image://screenshot/now"
+        source: "image://screenshot/current"
         fillMode: Image.PreserveAspectFit
     }
 
@@ -63,7 +64,6 @@ Window{
                                  // console.log("in onActiveChanged:",dHandler.centroid.position.x,dHandler.centroid.position.y);
                                  // console.log("points in onActiveChanged:",points);
                              } else {
-
                                  points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
                                  canvas.requestPaint();
                                  if(points.length>2){
@@ -72,6 +72,7 @@ Window{
                                      });
 
                                      irregularshot.capture(iw_image,polygon);
+                                    // console.log("to test IrregularWindow 是否成功连接上capture()");
                                      irregularWindow.close();
                                  }
 
@@ -93,10 +94,11 @@ Window{
 
     }
 
-    Component.onCompleted: showFullScreen()
-
-
     IrregularShot{
         id:irregularshot
     }
+
+    Component.onCompleted: showFullScreen()
+
+
 }

@@ -7,14 +7,16 @@ function selectRect() {
 function selectIrregular(){
 
     mainWindow.visible=false;
-    mainWindow.hide();
+    // mainWindow.hide();
     loader.source = "IrregularWindow.qml";
 }
 
 function onScreenshotCaptured(filepath){
+    console.log("Screenshot captured:"+filepath);
     mainWindow.mwImage.source="file://"+filepath;
     mainWindow.visible=true;
     mainWindow.show();
+
 }
 
 

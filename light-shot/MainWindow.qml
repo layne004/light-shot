@@ -138,8 +138,8 @@ ApplicationWindow {
     }
 
     Connections{
-        target:IrregularShot
-        onScreenshotCaptured:Controller.onScreenshotCaptured(filepath)
+        target:irregularShot
+        onScreenshotCaptured:Controller.onScreenshotCaptured(filepath);
     }
 
 }
