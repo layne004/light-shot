@@ -137,9 +137,19 @@ ApplicationWindow {
         Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
     }
 
+    property IrregularShot globalIrregularShot: globalIrregularShot
+
+    IrregularShot{
+        id:globalIrregularShot
+    }
+
     Connections{
-        target:irregularShot
-        onScreenshotCaptured:Controller.onScreenshotCaptured(filepath);
+        target:globalIrregularShot
+        // onScreenshotCaptured:Controller.onScreenshotCaptured(filepath);
+        function onScreenshotCaptured(filepath) {
+            console.log("Screenshot captured:",+filepath);
+            Controller.onScreenshotCaptured(filepath);
+        }
     }
 
 }

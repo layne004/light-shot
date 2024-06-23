@@ -19,7 +19,7 @@ Window{
 
     Image {
         id: iw_image
-        source: "image://screenshot/current"
+        source: "image://screenshot/now"
         fillMode: Image.PreserveAspectFit
     }
 
@@ -71,7 +71,7 @@ Window{
                                          return Qt.point(p.x,p.y);
                                      });
 
-                                     irregularshot.capture(iw_image,polygon);
+                                     globalIrregularShot.capture(iw_image,polygon);
                                     // console.log("to test IrregularWindow 是否成功连接上capture()");
                                      irregularWindow.close();
                                  }
@@ -94,9 +94,9 @@ Window{
 
     }
 
-    IrregularShot{
-        id:irregularshot
-    }
+    // IrregularShot{
+    //     id:irregularshot
+    // }
 
     Component.onCompleted: showFullScreen()
 

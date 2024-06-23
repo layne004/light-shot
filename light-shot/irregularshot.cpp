@@ -13,54 +13,54 @@
 
 IrregularShot::IrregularShot(QObject *parent)
     : QObject{parent}
-{}
+{
+    // connect(timer, &QTimer::timeout, this, &IrregularShot::checkGrabResult);
+}
 
 void IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
 {
-    // QPolygon qPolygon;
-    // for (const QVariant &point : polygon) {
-    //     QVariantMap pointMap = point.toMap();
-    //     qPolygon << QPoint(pointMap["x"].toInt(), pointMap["y"].toInt());
-    // }
+    qPolygon.clear();
+    for (const QVariant &point : polygon) {
+        QVariantMap pointMap = point.toMap();
+        qPolygon << QPoint(pointMap["x"].toInt(), pointMap["y"].toInt());
+    }
 
     qDebug() << "the function has been used.";
 
-    QSharedPointer<const QQuickItemGrabResult> grabResult = item->grabToImage();
+    grabResult = item->grabToImage();
+
+    qDebug() << "Grab result requested.";
 
     if (!grabResult) {
         qDebug() << "Failed tp grab";
         return;
     }
 
-    QPolygon qPolygon;
-    for (const QVariant &point : polygon) {
-        qPolygon << point.toPoint();
+    qDebug() << "Grab result obtained.";
+    qDebug() << "grabResult.data() is:" << grabResult.data();
+
+    qDebug() << "grab result ready.";
+    QImage grabbedImage = grabResult->image();
+
+    if (grabbedImage.isNull()) {
+        qDebug() << "Failed to grab image";
+        return;
     }
-    qDebug() << "1";
 
-    connect(grabResult.data(), &QQuickItemGrabResult::ready, [grabResult, qPolygon, this]() {
-        qDebug() << "2";
+    QImage resultImage(grabbedImage.size(), QImage::Format_ARGB32);
+    resultImage.fill(Qt::yellow);
 
-        QImage grabbedImage = grabResult->image();
-        QImage resultImage(grabbedImage.size(), QImage::Format_ARGB32);
-        resultImage.fill(Qt::transparent);
+    QPainter painter(&resultImage);
+    painter.setClipRegion(QRegion(qPolygon));
+    painter.drawImage(0, 0, grabbedImage);
+    painter.end();
 
-        qDebug() << "3";
+    QString filepath = QDir::temp().absoluteFilePath("irregular_screenshot.png");
+    if (resultImage.save(filepath)) {
+        qDebug() << "Irregular region saved successfully";
+    } else {
+        qDebug() << "Failed to save the image";
+    }
 
-        QPainter painter(&resultImage);
-        painter.setClipRegion(QRegion(qPolygon));
-        painter.drawImage(0, 0, grabbedImage);
-        painter.end();
-
-        qDebug() << "4";
-
-        QString filepath = QDir::temp().absoluteFilePath("irregular_screenshot.png");
-        if (resultImage.save(filepath)) {
-            qDebug() << "Irregular region saved successfully";
-        } else {
-            qDebug() << "Failed to save the image";
-        }
-
-        emit screenshotCaptured(filepath);
-    });
+    emit screenshotCaptured(filepath);
 }

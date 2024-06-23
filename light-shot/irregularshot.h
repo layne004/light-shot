@@ -8,6 +8,9 @@
 #include <QObject>
 #include <QPolygon>
 #include <QQuickItem>
+#include <QQuickItemGrabResult>
+#include <QSharedPointer>
+#include <QTimer>
 #include <QVariantList>
 #include <qqmlregistration.h>
 
@@ -23,4 +26,11 @@ public:
 
 signals:
     void screenshotCaptured(const QString &filepath);
+    // private slots:
+    //     void processGrabResult();
+
+private:
+    QSharedPointer<const QQuickItemGrabResult> grabResult;
+    // QTimer *timer;
+    QPolygon qPolygon;
 };
