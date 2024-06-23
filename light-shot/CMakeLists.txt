@@ -30,7 +30,8 @@ qt_add_qml_module(
   imagesaver.h
   imagesaver.cpp
   QML_FILES
-  lightshot.js)
+  lightshot.js
+  SOURCES windowundercursor.h windowundercursor.cpp)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 
