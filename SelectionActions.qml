@@ -3,7 +3,6 @@ import QtQuick.Controls
 
 Item {
 
-    property string path: "file:///root/learn-git/github/lightshot/img/"
     property alias pencil: _pencil
     property alias line: _line
     property alias square: _square
@@ -23,27 +22,27 @@ Item {
 
     Action{
         id:_square
-        icon.source: path + "square.svg"
+        icon.source: "/img/material/square.svg"
     }
 
     Action{
         id:_circle
-        icon.source: path + "circle.svg"
+        icon.source: "/img/material/circle.svg"
     }
 
     Action{
         id:_undo
-        icon.source: path + "undo.svg"
+        icon.source: "/img/material/undo.svg"
     }
 
     Action{
         id:_redo
-        icon.source: path + "redo.svg"
+        icon.source: "/img/material/redo.svg"
     }
 
     Action{
         id:_close
-        icon.source: path + "close.svg"
+        icon.source: "/img/material/close.svg"
     }
 
     Action{

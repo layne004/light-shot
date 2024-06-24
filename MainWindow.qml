@@ -37,7 +37,7 @@ ApplicationWindow {
             id:mw_imageItem
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: "white"
+            color: "#fcfcfc"
             border.color: "#d2d2d2"
             Image{
                 id:mwImage
@@ -111,7 +111,9 @@ ApplicationWindow {
         id:loader
         onLoaded: {
             item.closing.connect(function(){
-                mwImage.source = "file://"+loader.item.temp;
+                if(loader.item.temp)
+                    mwImage.source = "file://"+loader.item.temp;
+
                 loader.source = ""
                 mainWindow.show();
             })

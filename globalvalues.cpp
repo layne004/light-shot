@@ -7,5 +7,15 @@
 namespace GlobalValues {
 QString HOMEPATH = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/";
 QString DEF_FILENAME = (HOMEPATH + QString("%1.png").arg(STDDATETIME)); //default filename
-QString TIME = QString("%1.png").arg(STDDATETIME);
+
+QString filePath()
+{
+    return (HOMEPATH + QString("%1.png").arg(STDDATETIME));
+}
+
+QString time()
+{
+    return QString("%1.png").arg(STDDATETIME);
+}
+
 } // namespace GlobalValues

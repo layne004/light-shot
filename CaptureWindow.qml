@@ -11,8 +11,8 @@ Window {
     flags: Qt.FramelessWindowHint
     visibility: ApplicationWindow.FullScreen
     property alias selectArea: selectRect.selection
-    property var clipArea: Qt.rect(selectArea.x, selectArea.y, selectArea.width, selectArea.height)
     property string temp;
+    property var rectSize: Qt.rect(selectArea.x, selectArea.y, selectArea.width, selectArea.height)
 
     ImageSaver{
         id:saver;
@@ -69,7 +69,7 @@ Window {
         id:actions
         close.onTriggered: {captureWindow.close();}
         accept.onTriggered: {
-            saver.saveImage(cw_image, clipArea);
+            saver.saveImageToClip(cw_image, rectSize);
             temp = saver.tempPath;
             captureWindow.close();}
     }

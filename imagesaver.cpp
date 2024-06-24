@@ -87,7 +87,7 @@ void ImageSaver::saveImageToClip(QQuickItem *item, QRect area)
         exit(EXIT_FAILURE);
     }
 
-    m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::TIME);
+    m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::time());
 
     if (area.isEmpty()) {
         clipboard->setImage(grabImg);
@@ -111,7 +111,7 @@ void ImageSaver::saveScreenshotToClip(QRect area)
         pixmap = screen->grabWindow(0, area.x(), area.y(), area.width(), area.height());
     }
 
-    m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::TIME);
+    m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::time());
 
     QClipboard *clipboard = QGuiApplication::clipboard();
     if (clipboard)
