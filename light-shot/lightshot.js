@@ -6,16 +6,17 @@ function selectRect() {
 
 function selectIrregular(){
 
-    // mainWindow.visible=false;
-    // mainWindow.hide();
+    mainWindow.visible=false;
+    mainWindow.hide();
     loader.source = "IrregularWindow.qml";
 }
 
-function onScreenshotCaptured(filepath){
-    // console.log("Screenshot captured:"+filepath);
-    mainWindow.mwImage.source="file://"+filepath;
+function onScreenshotCaptured(){
+
     mainWindow.visible=true;
     mainWindow.show();
+    console.log("Screenshot captured:"+irregularImgpath);
+    mainWindow.mwImage.source="file://"+irregularImgpath;
     console.log("Image source set at "+mainWindow.mwImage.source);
 
 }

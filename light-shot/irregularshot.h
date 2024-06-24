@@ -22,10 +22,10 @@ class IrregularShot : public QObject
 public:
     explicit IrregularShot(QObject *parent = nullptr);
 
-    Q_INVOKABLE void capture(QQuickItem *item, const QVariantList &polygon);
+    Q_INVOKABLE QString capture(QQuickItem *item, const QVariantList &polygon);
 
 signals:
-    void screenshotCaptured(const QString &filepath);
+    // void screenshotCaptured(const QString &filepath);
     // private slots:
     //     void processGrabResult();
 

@@ -7,6 +7,7 @@
 import QtQuick
 import QtQuick.Controls
 import lightshot
+import "lightshot.js" as Func
 
 Window{
     id:irregularWindow
@@ -15,11 +16,11 @@ Window{
     // color: Qt.rgba(0,0,0,0.3)
 
     property var points:[]
-    // property alias irregularshot: irregularshot
+    property string irregularImgpath
 
     Image {
         id: iw_image
-        source: "image://screenshot/now"
+        source: "image://screenshot/current"
         fillMode: Image.PreserveAspectFit
     }
 
@@ -59,7 +60,6 @@ Window{
 
         onActiveChanged:(mouse)=> {
                              if(active){
-
                                  points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
                                  // console.log("in onActiveChanged:",dHandler.centroid.position.x,dHandler.centroid.position.y);
                                  // console.log("points in onActiveChanged:",points);
@@ -71,11 +71,11 @@ Window{
                                          return Qt.point(p.x,p.y);
                                      });
 
-                                     globalIrregularShot.capture(iw_image,polygon);
-                                    // console.log("to test IrregularWindow 是否成功连接上capture()");
-                                     irregularWindow.close();
+                                    irregularImgpath=globalIrregularShot.capture(iw_image,polygon);
+                                    console.log("to test IrregularWindow 是否成功连接上capture()");
+                                    irregularWindow.close();
+                                    Func.onScreenshotCaptured();
                                  }
-
                              }
         }
 

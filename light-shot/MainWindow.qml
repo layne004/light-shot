@@ -143,13 +143,5 @@ ApplicationWindow {
         id:globalIrregularShot
     }
 
-    Connections{
-        target:globalIrregularShot
-        // onScreenshotCaptured:Controller.onScreenshotCaptured(filepath);
-        function onScreenshotCaptured(filepath) {
-            console.log("Screenshot captured:",+filepath);
-            Controller.onScreenshotCaptured(filepath);
-        }
-    }
 
 }
