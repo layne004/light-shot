@@ -3,9 +3,9 @@ function selectRect() {
     rectTimer.start();
 }
 
+function windowUnderCursor(){
 
-
-
+}
 
 
 

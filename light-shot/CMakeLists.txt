@@ -10,7 +10,8 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup()
 
 qt_add_executable(applight-shot main.cpp)
-
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+target_link_libraries(applight-shot PRIVATE Qt6::Widgets)
 qt_add_qml_module(
   applight-shot
   URI
@@ -31,7 +32,9 @@ qt_add_qml_module(
   imagesaver.cpp
   QML_FILES
   lightshot.js
-  SOURCES windowundercursor.h windowundercursor.cpp)
+  SOURCES
+  windowundercursor.h
+  windowundercursor.cpp)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 
