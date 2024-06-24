@@ -9,4 +9,5 @@
 namespace GlobalValues {
 extern QString HOMEPATH;
 extern QString DEF_FILENAME;
+extern QString TIME;
 } // namespace GlobalValues

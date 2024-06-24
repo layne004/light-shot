@@ -111,6 +111,7 @@ ApplicationWindow {
         id:loader
         onLoaded: {
             item.closing.connect(function(){
+                mwImage.source = "file://"+loader.item.temp;
                 loader.source = ""
                 mainWindow.show();
             })

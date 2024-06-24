@@ -34,4 +34,14 @@ public:
 
     //重新截图并保存至剪切板，可指定区域裁剪
     Q_INVOKABLE void saveScreenshotToClip(QRect area = QRect());
+
+    QString getTempPath() const;
+    void setTempPath(const QString &newTempPath);
+
+signals:
+    void tempPathChanged();
+
+private:
+    QString m_tempPath;
+    Q_PROPERTY(QString tempPath READ getTempPath WRITE setTempPath NOTIFY tempPathChanged FINAL)
 };

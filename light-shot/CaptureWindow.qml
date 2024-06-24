@@ -12,6 +12,7 @@ Window {
     visibility: ApplicationWindow.FullScreen
     property alias selectArea: selectRect.selection
     property var clipArea: Qt.rect(selectArea.x, selectArea.y, selectArea.width, selectArea.height)
+    property string temp;
 
     ImageSaver{
         id:saver;
@@ -67,7 +68,10 @@ Window {
     SelectionActions{
         id:actions
         close.onTriggered: {captureWindow.close();}
-        accept.onTriggered: {saver.saveImageToClip(cw_image, clipArea); captureWindow.close();}
+        accept.onTriggered: {
+            saver.saveImage(cw_image, clipArea);
+            temp = saver.tempPath;
+            captureWindow.close();}
     }
 
     Component.onCompleted: showFullScreen()

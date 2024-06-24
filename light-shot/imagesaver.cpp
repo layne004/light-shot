@@ -1,5 +1,7 @@
 #include "imagesaver.h"
 #include <QClipboard>
+#include <QDir>
+#include <QEventLoop>
 #include <QImage>
 #include <QMargins>
 #include <QPixmap>
@@ -21,26 +23,28 @@ void ImageSaver::saveImage(QQuickItem *item, QRect area, QString filepath)
         exit(EXIT_FAILURE);
     }
 
-    qDebug() << filepath;
-    // connect 防止grab还未完成就开始下一步操作
-    if (area.isEmpty())
-        connect(grabResult.data(), &QQuickItemGrabResult::ready, [=]() {
-            if (!grabResult->saveToFile(filepath))
-                qDebug() << "failed to save";
-        });
-    else {
-        area -= QMargins{2, 2, 2, 2}; //剪掉border.width
-        connect(grabResult.data(), &QQuickItemGrabResult::ready, [=]() {
-            QImage clipedImage = grabResult->image().copy(area);
+    QEventLoop loop;
+    connect(grabResult.data(), &QQuickItemGrabResult::ready, &loop, &QEventLoop::quit);
+    loop.exec();
 
-            clipedImage.save(filepath);
-        });
+    // connect 防止grab还未完成就开始下一步操作
+    bool gs;
+
+    m_tempPath = filepath;
+
+    if (area.isEmpty())
+        gs = grabResult->saveToFile(filepath);
+    else {
+        area -= QMargins{2, 2, 2, 2};
+        gs = grabResult->image().copy(area).save(filepath);
     }
+    qDebug() << "is save success: " << gs;
 }
 
 void ImageSaver::saveScreenshot(QRect clip, QString filename)
 {
     QScreen *screen = QGuiApplication::primaryScreen();
+    m_tempPath = filename;
     if (!screen)
         qDebug() << "Failed to get screen!";
     else {
@@ -71,27 +75,29 @@ void ImageSaver::saveImageToClip(QQuickItem *item, QRect area)
     if (!area.isEmpty())
         area -= QMargins{2, 2, 2, 2};
 
-    QClipboard *clipboard;
-    QImage grabImg;
-    QImage final;
-    connect(grabResult.data(), &QQuickItemGrabResult::ready, [&]() {
-        grabImg = grabResult->image();
-        if (grabImg.isNull()) {
-            qDebug() << "Failed to convert grabResult to QImage.";
-            exit(EXIT_FAILURE);
-        }
+    QClipboard *clipboard = QGuiApplication::clipboard();
 
-        if (area.isEmpty())
-            final = grabImg;
-        else
-            final = grabImg.copy(area);
+    QEventLoop loop;
+    loop.connect(grabResult.data(), &QQuickItemGrabResult::ready, &loop, &QEventLoop::quit);
+    loop.exec();
 
-        clipboard = QGuiApplication::clipboard();
-        if (clipboard)
-            clipboard->setImage(final);
-        else
-            qDebug() << "Failed to get clipboard.\n";
-    });
+    QImage grabImg = grabResult->image();
+    if (grabImg.isNull()) {
+        qDebug() << "Failed to convert grabResult to QImage.";
+        exit(EXIT_FAILURE);
+    }
+
+    m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::TIME);
+
+    if (area.isEmpty()) {
+        clipboard->setImage(grabImg);
+        grabImg.save(m_tempPath);
+    } else {
+        area -= QMargins{2, 2, 2, 2};
+        QImage final = grabImg.copy(area);
+        clipboard->setImage(final);
+        final.save(m_tempPath);
+    }
 }
 
 void ImageSaver::saveScreenshotToClip(QRect area)
@@ -105,9 +111,26 @@ void ImageSaver::saveScreenshotToClip(QRect area)
         pixmap = screen->grabWindow(0, area.x(), area.y(), area.width(), area.height());
     }
 
+    m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::TIME);
+
     QClipboard *clipboard = QGuiApplication::clipboard();
     if (clipboard)
         clipboard->setPixmap(pixmap);
     else
         qDebug() << "Failed to get clipboard.\n";
+
+    pixmap.save(m_tempPath);
+}
+
+QString ImageSaver::getTempPath() const
+{
+    return m_tempPath;
+}
+
+void ImageSaver::setTempPath(const QString &newTempPath)
+{
+    if (m_tempPath == newTempPath)
+        return;
+    m_tempPath = newTempPath;
+    emit tempPathChanged();
 }

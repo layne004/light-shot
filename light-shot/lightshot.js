@@ -1,7 +1,6 @@
 function selectRect() {
     mainWindow.hide();
     rectTimer.start();
-
 }
 
 // SelectionRect's function
