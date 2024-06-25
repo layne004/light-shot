@@ -18,8 +18,6 @@ class ImageSaver : public QObject
     QML_ELEMENT
 public:
     explicit ImageSaver(QObject *parent = nullptr);
-
-    Q_INVOKABLE void save(QQuickItem *item, QString filepath);
    
     //可以将qml端的'Image对象'保存成图片至本地, 默认全屏，也可矩形区域裁剪; 默认时间命名，也可自定义命名
     Q_INVOKABLE void saveImage(QQuickItem *item,

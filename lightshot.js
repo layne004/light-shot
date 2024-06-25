@@ -3,8 +3,6 @@ function selectRect() {
     rectTimer.start();
 }
 
-<<<<<<< HEAD
-
 function selectIrregular(){
 
     mainWindow.visible=false;
@@ -22,9 +20,6 @@ function onScreenshotCaptured(){
 
 }
 
-
-=======
->>>>>>> main
 // SelectionRect's function
 
 function setPropagation(hovered){

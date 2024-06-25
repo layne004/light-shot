@@ -26,6 +26,7 @@ qt_add_qml_module(
   CaptureWindow.qml
   SelectionRect.qml
   SelectAreaButtons.qml
+  SelectionActions.qml
   SOURCES
   screenshotprovider.h
   globalvalues.h
@@ -38,8 +39,7 @@ qt_add_qml_module(
   irregularshot.h
   irregularshot.cpp
   QML_FILES
-  IrregularWindow.qml
-  SelectionActions.qml)
+  IrregularWindow.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 
