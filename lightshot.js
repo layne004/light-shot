@@ -3,6 +3,7 @@ function selectRect() {
     rectTimer.start();
 }
 
+<<<<<<< HEAD
 
 function selectIrregular(){
 
@@ -22,7 +23,16 @@ function onScreenshotCaptured(){
 }
 
 
+=======
+>>>>>>> main
 // SelectionRect's function
+
+function setPropagation(hovered){
+    if(hovered)
+        selectHandler.enabled = false;
+    else
+        selectHandler.enabled = true;
+}
 
 function updateSize(StartP, endP){
     var minX = Math.min(StartP.x,endP.x);

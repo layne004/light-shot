@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/material/accept.svg</file>
+        <file>img/material/circle.svg</file>
+        <file>img/material/close.svg</file>
+        <file>img/material/copy.svg</file>
+        <file>img/material/line.svg</file>
+        <file>img/material/pencil.svg</file>
+        <file>img/material/pin.svg</file>
+        <file>img/material/redo.svg</file>
+        <file>img/material/save.svg</file>
+        <file>img/material/square.svg</file>
+        <file>img/material/text.svg</file>
+        <file>img/material/undo.svg</file>
+        <file>img/app/lightshot.ico</file>
+    </qresource>
+</RCC>
