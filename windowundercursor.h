@@ -14,7 +14,8 @@ class WindowUnderCursor : public QObject
     QML_ELEMENT
 
 public:
-    WindowUnderCursor();
+    explicit WindowUnderCursor(QObject *parent = nullptr);
 
     Q_INVOKABLE QImage captureWindowUnderCursor();
+    Q_INVOKABLE void savecapture();
 };

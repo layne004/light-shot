@@ -2,14 +2,18 @@ function selectRect() {
     mainWindow.hide();
     rectTimer.start();
 }
-
-function windowUnderCursor(){
+function windowundercur(){
 
 }
 
-
-
 // SelectionRect's function
+
+function setPropagation(hovered){
+    if(hovered)
+        selectHandler.enabled = false;
+    else
+        selectHandler.enabled = true;
+}
 
 function updateSize(StartP, endP){
     var minX = Math.min(StartP.x,endP.x);

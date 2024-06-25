@@ -10,6 +10,7 @@ import QtQuick.Layouts
 import Qt.labs.platform
 // import lightshot
 import "lightshot.js" as Controller
+import Windowundercursor 1.0
 
 ApplicationWindow {
     id:mainWindow
@@ -37,7 +38,7 @@ ApplicationWindow {
             id:mw_imageItem
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: "white"
+            color: "#fcfcfc"
             border.color: "#d2d2d2"
             Image{
                 id:mwImage
@@ -105,36 +106,44 @@ ApplicationWindow {
     MainActions{
         id:actions
         rectRegion.onTriggered: Controller.selectRect()
-        windowUnderCursor.onTriggered: Windowcursor.captureWindowUnderCursor()
+        windowUnderCursor.onTriggered: Controller.windowundercur()
+    }
+
+    WindowUnderCursor{
+        id :windowunder
     }
 
     Loader{
         id:loader
         onLoaded: {
             item.closing.connect(function(){
+                if(loader.item.temp)
+                    mwImage.source = "file://"+loader.item.temp;
+
                 loader.source = ""
+                mainWindow.show();
             })
         }
     }
 
-    SystemTrayIcon{
-        id:sysTray
-        visible: true
-        icon.source: "file:///root/learn-git/github/light-shot/light-shot/img/lightshot.ico"
+    // SystemTrayIcon{
+    //     id:sysTray
+    //     visible: true
+    //     icon.source: "/img/app/lightshot.ico"
 
-        //此处的MenuItem是Qt.labs的，所以没有action property
-        menu: Menu{
-            MenuItem{
-                text: qsTr("Quit")
-                onTriggered: Qt.quit();
-            }
-        }
+    //     //此处的MenuItem是Qt.labs的，所以没有action property
+    //     menu: Menu{
+    //         MenuItem{
+    //             text: qsTr("Quit")
+    //             onTriggered: Qt.quit();
+    //         }
+    //     }
 
-        onActivated: {
-            //todo 调用rectRegion
-        }
+    //     onActivated: {
+    //         //todo 调用rectRegion
+    //     }
 
-        Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
-    }
+    //     Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
+    // }
 
 }
