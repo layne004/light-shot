@@ -5,7 +5,7 @@ function selectRect() {
 
 function selectIrregular(){
 
-    mainWindow.visible=false;
+    // mainWindow.visible=false;
     mainWindow.hide();
     loader.source = "IrregularWindow.qml";
 }
@@ -14,8 +14,8 @@ function onScreenshotCaptured(){
 
     mainWindow.visible=true;
     mainWindow.show();
-    console.log("Screenshot captured:"+irregularImgpath);
-    mainWindow.mwImage.source="file://"+irregularImgpath;
+    console.log("Screenshot captured:"+irregularWindow.irregularImgpath);
+    mainWindow.mwImage.source="file://"+irregularWindow.irregularImgpath;
     console.log("Image source set at "+mainWindow.mwImage.source);
 
 }

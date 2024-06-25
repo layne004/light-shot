@@ -114,6 +114,8 @@ ApplicationWindow {
             item.closing.connect(function(){
                 if(loader.item.temp)
                     mwImage.source = "file://"+loader.item.temp;
+                if(loader.item.irregularImgpath)
+                    mwImage.source = "file://"+loader.item.irregularImgpath;
 
                 loader.source = ""
                 mainWindow.show();
@@ -141,11 +143,7 @@ ApplicationWindow {
     //     Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
     // }
 
-    property IrregularShot globalIrregularShot: globalIrregularShot
 
-    IrregularShot{
-        id:globalIrregularShot
-    }
 
 
 }

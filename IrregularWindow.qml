@@ -17,6 +17,11 @@ Window{
 
     property var points:[]
     property string irregularImgpath
+    property IrregularShot globalIrregularShot: globalIrregularShot
+
+    IrregularShot{
+        id:globalIrregularShot
+    }
 
     Image {
         id: iw_image
@@ -64,10 +69,11 @@ Window{
                              } else {
                                 points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
                                 canvas.requestPaint();
-                                irregularImgpath=globalIrregularShot.capture(iw_image,points);
+                                globalIrregularShot.capture(iw_image,points);
                                 console.log("to test IrregularWindow 是否成功连接上capture()");
+                                irregularImgpath=globalIrregularShot.tempPath;
                                 irregularWindow.close();
-                                Func.onScreenshotCaptured();
+                                // Func.onScreenshotCaptured();
                              }
         }
 

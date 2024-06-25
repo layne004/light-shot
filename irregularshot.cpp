@@ -16,7 +16,7 @@ IrregularShot::IrregularShot(QObject *parent)
     : QObject{parent}
 {}
 
-QString IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
+void IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
 {
     qPolygon.clear();
     for (const QVariant &point : polygon) {
@@ -69,13 +69,25 @@ QString IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
 
     qDebug() << "resultImage is " << resultImage;
 
-    QString filepath = QDir::temp().absoluteFilePath("irregular_screenshot.png");
-    if (resultImage.save(filepath)) {
-        qDebug() << "filepath is:" << filepath;
+    m_tempPath = QDir::temp().absoluteFilePath("irregular_screenshot.png");
+    if (resultImage.save(m_tempPath)) {
+        qDebug() << "filepath is:" << m_tempPath;
         qDebug() << "Irregular region saved successfully";
     } else {
         qDebug() << "Failed to save the image";
     }
+    // return m_tempPath;
+}
 
-    return filepath;
+QString IrregularShot::getTempPath() const
+{
+    return m_tempPath;
+}
+
+void IrregularShot::setTempPath(const QString &newTempPath)
+{
+    if (m_tempPath == newTempPath)
+        return;
+    m_tempPath = newTempPath;
+    emit tempPathChanged();
 }
