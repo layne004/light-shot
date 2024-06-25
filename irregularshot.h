@@ -24,13 +24,8 @@ public:
 
     Q_INVOKABLE QString capture(QQuickItem *item, const QVariantList &polygon);
 
-signals:
-    // void screenshotCaptured(const QString &filepath);
-    // private slots:
-    //     void processGrabResult();
-
 private:
     QSharedPointer<const QQuickItemGrabResult> grabResult;
-    // QTimer *timer;
+
     QPolygon qPolygon;
 };

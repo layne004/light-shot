@@ -61,44 +61,29 @@ Window{
         onActiveChanged:(mouse)=> {
                              if(active){
                                  points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
-                                 // console.log("in onActiveChanged:",dHandler.centroid.position.x,dHandler.centroid.position.y);
-                                 // console.log("points in onActiveChanged:",points);
                              } else {
-                                 points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
-                                 canvas.requestPaint();
-                                 if(points.length>2){
-                                     var polygon=points.map(function(p){
-                                         return Qt.point(p.x,p.y);
-                                     });
-
-                                    irregularImgpath=globalIrregularShot.capture(iw_image,polygon);
-                                    console.log("to test IrregularWindow 是否成功连接上capture()");
-                                    irregularWindow.close();
-                                    Func.onScreenshotCaptured();
-                                 }
+                                points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
+                                canvas.requestPaint();
+                                irregularImgpath=globalIrregularShot.capture(iw_image,points);
+                                console.log("to test IrregularWindow 是否成功连接上capture()");
+                                irregularWindow.close();
+                                Func.onScreenshotCaptured();
                              }
         }
 
         onActiveTranslationChanged:{
-                                        if(active){
-                                            // console.log("in onPositionChanged:",dHandler.centroid.position.x,dHandler.centroid.position.y);
-                                            points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
-                                            canvas.requestPaint();//重绘Canvas
-                                                              //检测points中每个点坐标是否传输正确
-                                                              // console.log("points in onPositionChanged:");
-                                                              // for(var i=0;i<points.length;i++){
-                                                              //     console.log("Point "+i+":x="+points[i].x+",y="+points[i].y);
-                                                              // }
-                                        }
-                                    }
-
+            if(active){
+                points.push({x:dHandler.centroid.position.x,y:dHandler.centroid.position.y});
+                canvas.requestPaint();//重绘Canvas
+                //检测points中每个点坐标是否传输正确
+                // console.log("points in onPositionChanged:");
+                // for(var i=0;i<points.length;i++){
+                //     console.log("Point "+i+":x="+points[i].x+",y="+points[i].y);
+                // }
+            }
+        }
     }
 
-    // IrregularShot{
-    //     id:irregularshot
-    // }
-
     Component.onCompleted: showFullScreen()
-
 
 }

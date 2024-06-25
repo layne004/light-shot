@@ -14,9 +14,7 @@
 
 IrregularShot::IrregularShot(QObject *parent)
     : QObject{parent}
-{
-    // connect(timer, &QTimer::timeout, this, &IrregularShot::checkGrabResult);
-}
+{}
 
 QString IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
 {
@@ -60,9 +58,12 @@ QString IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
     QImage resultImage(grabbedImage.size(), QImage::Format_ARGB32);
     resultImage.fill(Qt::transparent);
 
+    QRegion clipRegion(qPolygon);
+    qDebug() << "clipRegion:" << clipRegion;
+
     //设置绘图环境
     QPainter painter(&resultImage);
-    painter.setClipRegion(QRegion(qPolygon));
+    painter.setClipRegion(clipRegion);
     painter.drawImage(0, 0, grabbedImage);
     painter.end();
 
