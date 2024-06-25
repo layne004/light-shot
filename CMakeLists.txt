@@ -34,7 +34,8 @@ qt_add_qml_module(
   lightshot.js
   SOURCES
   windowundercursor.h
-  windowundercursor.cpp)
+  windowundercursor.cpp
+  QML_FILES Windowcursor.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 

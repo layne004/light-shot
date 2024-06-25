@@ -8,13 +8,13 @@
 #include <QWindow>
 
 #include <qqmlregistration.h>
-class WindowUnderCursor : QObject
+class WindowUnderCursor : public QObject
 {
+    Q_OBJECT
     QML_ELEMENT
 
 public:
     WindowUnderCursor();
 
-    QImage captureWindowUnderCursor();
-    void saveundercursor(QImage image);
+    Q_INVOKABLE QImage captureWindowUnderCursor();
 };

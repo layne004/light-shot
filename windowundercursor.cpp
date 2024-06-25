@@ -3,7 +3,9 @@
 WindowUnderCursor::WindowUnderCursor() {}
 
 QImage WindowUnderCursor::captureWindowUnderCursor()
+
 {
+    qDebug() << "save successfully!";
     QPoint cursorPos = QCursor::pos();
     QWidget *widget = QApplication::widgetAt(cursorPos);
     if (!widget)

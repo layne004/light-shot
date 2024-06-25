@@ -105,6 +105,7 @@ ApplicationWindow {
     MainActions{
         id:actions
         rectRegion.onTriggered: Controller.selectRect()
+        windowUnderCursor.onTriggered: Windowcursor.captureWindowUnderCursor()
     }
 
     Loader{
