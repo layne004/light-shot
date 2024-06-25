@@ -62,5 +62,6 @@ Item {
     Action{
         id:_defaultSave
         text: qsTr("Default Save")
+        checkable: true
     }
 }

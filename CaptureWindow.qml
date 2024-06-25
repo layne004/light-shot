@@ -72,6 +72,8 @@ Window {
             saver.saveImageToClip(cw_image, rectSize);
             temp = saver.tempPath;
             captureWindow.close();}
+        pencil.onTriggered: {
+            selectRect.penciling = true;}
     }
 
     Component.onCompleted: showFullScreen()

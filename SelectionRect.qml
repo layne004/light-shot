@@ -12,7 +12,13 @@ Item{
     property alias selection: rect
     property var startPos: Qt.point(0,0)
     property var endPos: Qt.point(0,0)
-    property bool isResizing:true
+    property bool resizing:true
+    property bool dragging: false;
+    property bool penciling: false;
+
+    property var lines: []
+
+    // signal pencil();
 
     Rectangle{
         id:rect
@@ -41,9 +47,9 @@ Item{
                 spacing: 5
                 SelectAreaButtons{
                     action: actions.pencil
-                    visible: !isResizing
+                    visible: !resizing
                     onVisibleChanged: {
-                        if(visible === true)
+                        if(visible)
                             animation.start();
                     }
                     onHoveredChanged: {
@@ -53,9 +59,9 @@ Item{
                 }
                 SelectAreaButtons{
                     action: actions.line
-                    visible: !isResizing
+                    visible: !resizing
                     onVisibleChanged: {
-                        if(visible === true)
+                        if(visible)
                             animation.start();
                     }
                     onHoveredChanged: {
@@ -64,9 +70,9 @@ Item{
                 }
                 SelectAreaButtons{
                     action: actions.square
-                    visible: !isResizing
+                    visible: !resizing
                     onVisibleChanged: {
-                        if(visible === true)
+                        if(visible)
                             animation.start();
                     }
                     onHoveredChanged: {
@@ -75,9 +81,9 @@ Item{
                 }
                 SelectAreaButtons{
                     action: actions.circle
-                    visible: !isResizing
+                    visible: !resizing
                     onVisibleChanged: {
-                        if(visible === true)
+                        if(visible)
                             animation.start();
                     }
                     onHoveredChanged: {
@@ -87,9 +93,9 @@ Item{
                 //todo 'redo/undo'
                 SelectAreaButtons{
                     action: actions.close
-                    visible: !isResizing
+                    visible: !resizing
                     onVisibleChanged: {
-                        if(visible === true)
+                        if(visible)
                             animation.start();
                     }
                     onHoveredChanged: {
@@ -99,9 +105,9 @@ Item{
 
                 SelectAreaButtons{
                     action: actions.accept
-                    visible: !isResizing
+                    visible: !resizing
                     onVisibleChanged: {
-                        if(visible === true)
+                        if(visible)
                             animation.start();
                     }
                     onHoveredChanged: {
@@ -116,7 +122,7 @@ Item{
 
     DragHandler{
         id:selectHandler
-        dragThreshold: 6;
+        dragThreshold: 0;
 
         property bool isInButton: false
         property var rectX;
@@ -124,8 +130,10 @@ Item{
 
         onActiveChanged: {
 
-            isResizing = !Func.isInArea(centroid.position);
-            if(isResizing === true){
+            resizing = !Func.isInArea(centroid.position);
+            dragging = Func.isInArea(centroid.position) & !penciling;
+            penciling = Func.isInArea(centroid.position) & !dragging;
+            if(resizing){
                 cursorShape = Qt.CustomCursor
                 rect.width = 0;
                 rect.height = 0
@@ -136,25 +144,61 @@ Item{
                 }else{
                     endPos = centroid.position
                     Func.updateSize(startPos, endPos);
-                    isResizing = false;
+                    resizing = false;
+                    dragging = true;
                 }
-            }else{
+            }else if(dragging){
                 cursorShape = Qt.SizeAllCursor;
                 rectX = rect.x;
                 rectY = rect.y;
+            }else if(penciling){
+                cursorShape = Qt.CrossCursor;
+                if(active){
+                    lines.push([])
+                    lines[lines.length - 1].push({x:centroid.position.x, y:centroid.position.y})
+                    drawCanvas.requestPaint();
+                }else
+                    drawCanvas.requestPaint();
             }
         }
 
         onActiveTranslationChanged: {
-            if(isResizing === true)
+            if(resizing)
                 Func.updateSize(startPos, centroid.position);
-            else
+            else if(dragging)
             {
                 rect.x = rectX + activeTranslation.x;
                 rect.y = rectY + activeTranslation.y;
+            }else if(penciling){
+                if(Qt.LeftButton){
+                    lines[lines.length - 1].push({x:centroid.position.x, y:centroid.position.y});
+                    drawCanvas.requestPaint();
+                }
             }
         }
 
     }
 
+    Canvas {
+            id: drawCanvas
+            anchors.fill: parent
+            onPaint: {
+                var ctx = drawCanvas.getContext("2d");
+                ctx.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "red";
+                ctx.beginPath();
+                for (var i = 0; i < lines.length; i++) {
+                    var line = lines[i];
+                    if (line.length > 1) {
+                        ctx.moveTo(line[0].x, line[0].y);
+                        for (var j = 1; j < line.length; j++) {
+                            ctx.lineTo(line[j].x, line[j].y);
+                        }
+                    }
+                }
+                ctx.stroke();
+            }
+
+    }
 }
