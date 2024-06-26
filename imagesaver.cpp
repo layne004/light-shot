@@ -4,6 +4,7 @@
 #include <QEventLoop>
 #include <QImage>
 #include <QMargins>
+#include <QPainter>
 #include <QPixmap>
 #include <QQuickItemGrabResult>
 #include <QScreen>
@@ -120,6 +121,41 @@ void ImageSaver::saveScreenshotToClip(QRect area)
         qDebug() << "Failed to get clipboard.\n";
 
     pixmap.save(m_tempPath);
+}
+
+void ImageSaver::saveCanvasToClip(QQuickItem *image, QQuickItem *canvas, QRect area)
+{
+    QSharedPointer<const QQuickItemGrabResult> grabImage = image->grabToImage();
+    QSharedPointer<const QQuickItemGrabResult> grabCanvas = canvas->grabToImage();
+
+    if (!grabCanvas || !grabImage) {
+        qDebug() << "Failed to grab";
+        exit(EXIT_FAILURE);
+    }
+
+    QImage mergeImage(image->width(), image->height(), QImage::Format_ARGB32);
+    mergeImage.fill(Qt::transparent);
+
+    QPainter p(&mergeImage);
+
+    QEventLoop loop;
+    connect(grabCanvas.data(), &QQuickItemGrabResult::ready, &loop, &QEventLoop::quit);
+    loop.exec();
+
+    p.drawImage(QPoint(0, 0), grabImage->image());
+    p.drawImage(QPoint(0, 0), grabCanvas->image());
+
+    QImage final = mergeImage.copy(area);
+
+    m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::time());
+
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    if (clipboard)
+        clipboard->setImage(final);
+    else
+        qDebug() << "Failed to get clipboard.\n";
+
+    final.save(m_tempPath);
 }
 
 QString ImageSaver::getTempPath() const

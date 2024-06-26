@@ -70,10 +70,16 @@ Window {
         close.onTriggered: {captureWindow.close();}
         accept.onTriggered: {
             saver.saveImageToClip(cw_image, rectSize);
+            if(selectRect.penciling){
+                // saver.saveImageToClip(selectRect.pencilCanvas, rectSize);
+                saver.saveCanvasToClip(cw_image, selectRect.pencilCanvas, rectSize);
+            }
             temp = saver.tempPath;
             captureWindow.close();}
         pencil.onTriggered: {
-            selectRect.penciling = true;}
+            selectRect.penciling = true;
+            selectRect.pencilCanvas.requestPaint();
+        }
     }
 
     Component.onCompleted: showFullScreen()

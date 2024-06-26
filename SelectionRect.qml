@@ -4,12 +4,14 @@
 */
 import QtQuick
 import QtQuick.Controls
+import lightshot
 import "lightshot.js" as Func
 import QtQuick.Layouts
 
 Item{
 
     property alias selection: rect
+    property alias pencilCanvas: drawCanvas
     property var startPos: Qt.point(0,0)
     property var endPos: Qt.point(0,0)
     property bool resizing:true
@@ -130,9 +132,9 @@ Item{
 
         onActiveChanged: {
 
-            resizing = !Func.isInArea(centroid.position);
+            resizing = !Func.isInArea(centroid.position)& !dragging &!penciling;
             dragging = Func.isInArea(centroid.position) & !penciling;
-            penciling = Func.isInArea(centroid.position) & !dragging;
+            penciling = !resizing & !dragging;
             if(resizing){
                 cursorShape = Qt.CustomCursor
                 rect.width = 0;
@@ -182,9 +184,15 @@ Item{
     Canvas {
             id: drawCanvas
             anchors.fill: parent
+            x: rect.x;
+            y: rect.y
+            width: rect.width
+            height: rect.height
+
             onPaint: {
                 var ctx = drawCanvas.getContext("2d");
-                ctx.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
+                ctx.clearRect(drawCanvas.x, drawCanvas.y, drawCanvas.width, drawCanvas.height);
+
                 ctx.lineWidth = 3;
                 ctx.strokeStyle = "red";
                 ctx.beginPath();
@@ -198,6 +206,9 @@ Item{
                     }
                 }
                 ctx.stroke();
+
+
+
             }
 
     }

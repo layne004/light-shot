@@ -21,6 +21,8 @@ function updateSize(StartP, endP){
     rect.y = minY;
     rect.width = maxX-minX;
     rect.height = maxY-minY;
+
+    drawCanvas.requestPaint();
 }
 
 function isInArea(pos){

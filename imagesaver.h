@@ -28,12 +28,15 @@ public:
     //重新截图并保存本地，可指定区域裁剪和自定义命名
     Q_INVOKABLE void saveScreenshot(QRect clip = QRect(),
                                     QString filename = GlobalValues::filePath());
-    //tofix
+
     //将qml端的'Image对象'至'剪切板',默认是全部，可指定矩形区域裁剪
     Q_INVOKABLE void saveImageToClip(QQuickItem *item, QRect area = QRect());
 
     //重新截图并保存至剪切板，可指定区域裁剪
     Q_INVOKABLE void saveScreenshotToClip(QRect area = QRect());
+
+    //保存画布的内容
+    Q_INVOKABLE void saveCanvasToClip(QQuickItem *image, QQuickItem *canvas, QRect area = QRect());
 
     QString getTempPath() const;
     void setTempPath(const QString &newTempPath);
