@@ -70,15 +70,17 @@ Window {
         close.onTriggered: {captureWindow.close();}
         accept.onTriggered: {
             saver.saveImageToClip(cw_image, rectSize);
-            if(selectRect.penciling){
+            if(selectRect.penciling | selectRect.lining){
                 // saver.saveImageToClip(selectRect.pencilCanvas, rectSize);
                 saver.saveCanvasToClip(cw_image, selectRect.pencilCanvas, rectSize);
             }
             temp = saver.tempPath;
-            captureWindow.close();}
-        pencil.onTriggered: {
-            selectRect.penciling = true;
-            selectRect.pencilCanvas.requestPaint();
+            captureWindow.close();
+        }
+        pencil.onTriggered: selectRect.penciling = true;
+        line.onTriggered: {
+            selectRect.dragging = false;
+            selectRect.lining = true;
         }
     }
 

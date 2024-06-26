@@ -12,11 +12,13 @@ Item{
 
     property alias selection: rect
     property alias pencilCanvas: drawCanvas
+    // property alias lineCanvas: _lineCanvas
     property var startPos: Qt.point(0,0)
     property var endPos: Qt.point(0,0)
     property bool resizing:true
     property bool dragging: false;
     property bool penciling: false;
+    property bool lining: false;
 
     property var lines: []
 
@@ -132,9 +134,11 @@ Item{
 
         onActiveChanged: {
 
-            resizing = !Func.isInArea(centroid.position)& !dragging &!penciling;
-            dragging = Func.isInArea(centroid.position) & !penciling;
-            penciling = !resizing & !dragging;
+            resizing = !Func.isInArea(centroid.position)& !dragging &!penciling &!lining;
+            dragging = Func.isInArea(centroid.position) & !penciling &!lining;
+            penciling = !resizing & !dragging &!lining;
+            lining = !resizing & !dragging &!penciling;
+
             if(resizing){
                 cursorShape = Qt.CustomCursor
                 rect.width = 0;
@@ -161,6 +165,16 @@ Item{
                     drawCanvas.requestPaint();
                 }else
                     drawCanvas.requestPaint();
+            }else if(lining)
+            {
+                cursorShape = Qt.CrossCursor;
+                if(active){
+                    var startX = centroid.position.x;
+                    var startY = centroid.position.y;
+                    lines.push({startX: startX, startY: startY, endX: startX, endY: startY});
+                    drawCanvas.requestPaint();
+                }else
+                    drawCanvas.requestPaint();
             }
         }
 
@@ -176,6 +190,10 @@ Item{
                     lines[lines.length - 1].push({x:centroid.position.x, y:centroid.position.y});
                     drawCanvas.requestPaint();
                 }
+            }else if(lining){
+                lines[lines.length - 1].endX = centroid.position.x;
+                lines[lines.length - 1].endY = centroid.position.y;
+                drawCanvas.requestPaint();
             }
         }
 
@@ -184,15 +202,12 @@ Item{
     Canvas {
             id: drawCanvas
             anchors.fill: parent
-            x: rect.x;
-            y: rect.y
-            width: rect.width
-            height: rect.height
 
             onPaint: {
                 var ctx = drawCanvas.getContext("2d");
                 ctx.clearRect(drawCanvas.x, drawCanvas.y, drawCanvas.width, drawCanvas.height);
 
+                //先画pencil痕迹
                 ctx.lineWidth = 3;
                 ctx.strokeStyle = "red";
                 ctx.beginPath();
@@ -207,9 +222,19 @@ Item{
                 }
                 ctx.stroke();
 
+                //再画line
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = "red";
+                ctx.beginPath();
 
+                for (var a = 0; a < lines.length; a++) {
+                    ctx.moveTo(lines[a].startX, lines[a].startY);
+                    ctx.lineTo(lines[a].endX, lines[a].endY);
+                }
 
+                ctx.stroke();
             }
 
     }
+
 }
