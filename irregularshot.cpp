@@ -5,6 +5,7 @@
 */
 
 #include "irregularshot.h"
+#include <QClipboard>
 #include <QDir>
 #include <QEventLoop>
 #include <QImage>
@@ -58,9 +59,12 @@ void IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
     painter.drawImage(0, 0, grabbedImage);
     painter.end();
 
+    QClipboard *clipboard = QGuiApplication::clipboard();
+
     m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::time());
     if (resultImage.save(m_tempPath)) {
         qDebug() << "filepath is:" << m_tempPath;
+        clipboard->setImage(resultImage);
         qDebug() << "Irregular region saved successfully";
     } else {
         qDebug() << "Failed to save the image";
