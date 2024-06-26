@@ -22,6 +22,7 @@ class IrregularShot : public QObject
 public:
     explicit IrregularShot(QObject *parent = nullptr);
 
+    //将qml端截取的多边形裁剪为不规则图片
     Q_INVOKABLE void capture(QQuickItem *item, const QVariantList &polygon);
 
     QString getTempPath() const;
