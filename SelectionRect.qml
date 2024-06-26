@@ -1,5 +1,5 @@
 /*
-    author:CaiJiali,DengKe   startDate:2024-06-18
+    author:CaiJiali   startDate:2024-06-18
     selection: provide selectable region
 */
 import QtQuick
@@ -12,17 +12,21 @@ Item{
 
     property alias selection: rect
     property alias pencilCanvas: drawCanvas
-    // property alias lineCanvas: _lineCanvas
     property var startPos: Qt.point(0,0)
     property var endPos: Qt.point(0,0)
-    property bool resizing:true
-    property bool dragging: false;
-    property bool penciling: false;
-    property bool lining: false;
 
+    property variant mode: ({
+        Resizing: 0,
+        Dragging: 1,
+        Pencil: 2,
+        Line: 3,
+        Square: 4,
+        Circle: 5
+    })
+
+    property int modeValue: mode.Resizing
     property var lines: []
 
-    // signal pencil();
 
     Rectangle{
         id:rect
@@ -51,7 +55,7 @@ Item{
                 spacing: 5
                 SelectAreaButtons{
                     action: actions.pencil
-                    visible: !resizing
+                    visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)
                             animation.start();
@@ -63,7 +67,7 @@ Item{
                 }
                 SelectAreaButtons{
                     action: actions.line
-                    visible: !resizing
+                    visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)
                             animation.start();
@@ -74,7 +78,7 @@ Item{
                 }
                 SelectAreaButtons{
                     action: actions.square
-                    visible: !resizing
+                    visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)
                             animation.start();
@@ -85,7 +89,7 @@ Item{
                 }
                 SelectAreaButtons{
                     action: actions.circle
-                    visible: !resizing
+                    visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)
                             animation.start();
@@ -97,7 +101,7 @@ Item{
                 //todo 'redo/undo'
                 SelectAreaButtons{
                     action: actions.close
-                    visible: !resizing
+                    visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)
                             animation.start();
@@ -109,7 +113,7 @@ Item{
 
                 SelectAreaButtons{
                     action: actions.accept
-                    visible: !resizing
+                    visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)
                             animation.start();
@@ -134,12 +138,16 @@ Item{
 
         onActiveChanged: {
 
-            resizing = !Func.isInArea(centroid.position)& !dragging &!penciling &!lining;
-            dragging = Func.isInArea(centroid.position) & !penciling &!lining;
-            penciling = !resizing & !dragging &!lining;
-            lining = !resizing & !dragging &!penciling;
+            if(modeValue !== mode.Resizing && modeValue !== mode.Dragging);
+            else{
+                if(Func.isInArea(centroid.position))
+                    modeValue = mode.Dragging;
+                else
+                    modeValue = mode.Resizing;
+            }
 
-            if(resizing){
+            switch(modeValue){
+            case mode.Resizing:{
                 cursorShape = Qt.CustomCursor
                 rect.width = 0;
                 rect.height = 0
@@ -153,11 +161,15 @@ Item{
                     resizing = false;
                     dragging = true;
                 }
-            }else if(dragging){
+                break;
+            }
+            case mode.Dragging:{
                 cursorShape = Qt.SizeAllCursor;
                 rectX = rect.x;
                 rectY = rect.y;
-            }else if(penciling){
+                break;
+            }
+            case mode.Pencil:{
                 cursorShape = Qt.CrossCursor;
                 if(active){
                     lines.push([])
@@ -165,8 +177,9 @@ Item{
                     drawCanvas.requestPaint();
                 }else
                     drawCanvas.requestPaint();
-            }else if(lining)
-            {
+                break;
+            }
+            case mode.Line:{
                 cursorShape = Qt.CrossCursor;
                 if(active){
                     var startX = centroid.position.x;
@@ -175,26 +188,33 @@ Item{
                     drawCanvas.requestPaint();
                 }else
                     drawCanvas.requestPaint();
+                break;
             }
+            }
+
         }
 
         onActiveTranslationChanged: {
-            if(resizing)
+
+            switch (modeValue){
+            case mode.Resizing:
                 Func.updateSize(startPos, centroid.position);
-            else if(dragging)
-            {
+                break;
+            case mode.Dragging:
                 rect.x = rectX + activeTranslation.x;
                 rect.y = rectY + activeTranslation.y;
-            }else if(penciling){
-                if(Qt.LeftButton){
-                    lines[lines.length - 1].push({x:centroid.position.x, y:centroid.position.y});
-                    drawCanvas.requestPaint();
-                }
-            }else if(lining){
+                break;
+            case mode.Pencil:
+                lines[lines.length - 1].push({x:centroid.position.x, y:centroid.position.y});
+                drawCanvas.requestPaint();
+                break;
+            case mode.Line:
                 lines[lines.length - 1].endX = centroid.position.x;
                 lines[lines.length - 1].endY = centroid.position.y;
                 drawCanvas.requestPaint();
+                break;
             }
+
         }
 
     }

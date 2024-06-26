@@ -69,19 +69,17 @@ Window {
         id:actions
         close.onTriggered: {captureWindow.close();}
         accept.onTriggered: {
-            saver.saveImageToClip(cw_image, rectSize);
-            if(selectRect.penciling | selectRect.lining){
-                // saver.saveImageToClip(selectRect.pencilCanvas, rectSize);
+            if(selectRect.modeValue === selectRect.mode.Resizing
+                    && selectRect.modeValue === selectRect.mode.Dragging)
+                saver.saveImageToClip(cw_image, rectSize);
+            else{
                 saver.saveCanvasToClip(cw_image, selectRect.pencilCanvas, rectSize);
             }
             temp = saver.tempPath;
             captureWindow.close();
         }
-        pencil.onTriggered: selectRect.penciling = true;
-        line.onTriggered: {
-            selectRect.dragging = false;
-            selectRect.lining = true;
-        }
+        pencil.onTriggered: selectRect.modeValue = selectRect.mode.Pencil
+        line.onTriggered: selectRect.modeValue = selectRect.mode.Line
     }
 
     Component.onCompleted: showFullScreen()
