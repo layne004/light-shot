@@ -7,7 +7,7 @@ function selectIrregular(){
 
     // mainWindow.visible=false;
     mainWindow.hide();
-    loader.source = "IrregularWindow.qml";
+    rectTimer.start();
 }
 
 // SelectionRect's function

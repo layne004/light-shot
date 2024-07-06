@@ -75,9 +75,7 @@ void IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
 
     m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::time());
     if (enlaredImage.save(m_tempPath)) {
-        qDebug() << "filepath is:" << m_tempPath;
         clipboard->setImage(enlaredImage);
-        qDebug() << "Irregular region saved successfully";
     } else {
         qDebug() << "Failed to save the image";
     }

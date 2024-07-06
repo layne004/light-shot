@@ -92,20 +92,25 @@ ApplicationWindow {
         }
     }
 
+    property bool flag;
+
     //toOptimize 暂时使用Timer来防止截图包含主窗口
     Timer{
         id:rectTimer
         interval: 300
         repeat: false;
         onTriggered: {
-            loader.source = "CaptureWindow.qml"
+            if(flag)
+                loader.source = "CaptureWindow.qml"
+            else
+                loader.source = "IrregularWindow.qml";
         }
     }
 
     MainActions{
         id:actions
-        rectRegion.onTriggered: Controller.selectRect()
-        irreguler.onTriggered: Controller.selectIrregular()
+        rectRegion.onTriggered: {Controller.selectRect(); flag = true}
+        irreguler.onTriggered: {Controller.selectIrregular(); flag = false}
     }
 
     Loader{

@@ -38,7 +38,7 @@ qt_add_qml_module(
   QML_FILES
   lightshot.js
   QML_FILES
-  PinWindow.qml)
+  PinWindow.qml
   IrregularWindow.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
