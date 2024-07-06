@@ -8,7 +8,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Qt.labs.platform
-// import lightshot
+import lightshot
 import "lightshot.js" as Controller
 
 ApplicationWindow {
@@ -105,6 +105,7 @@ ApplicationWindow {
     MainActions{
         id:actions
         rectRegion.onTriggered: Controller.selectRect()
+        irreguler.onTriggered: Controller.selectIrregular()
     }
 
     Loader{
@@ -113,6 +114,8 @@ ApplicationWindow {
             item.closing.connect(function(){
                 if(loader.item.temp)
                     mwImage.source = "file://"+loader.item.temp;
+                if(loader.item.irregularImgpath)
+                    mwImage.source = "file://"+loader.item.irregularImgpath;
 
                 loader.source = ""
                 mainWindow.show();
@@ -139,5 +142,8 @@ ApplicationWindow {
 
     //     Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
     // }
+
+
+
 
 }

@@ -3,6 +3,13 @@ function selectRect() {
     rectTimer.start();
 }
 
+function selectIrregular(){
+
+    // mainWindow.visible=false;
+    mainWindow.hide();
+    loader.source = "IrregularWindow.qml";
+}
+
 // SelectionRect's function
 
 function setPropagation(hovered){

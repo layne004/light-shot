@@ -26,16 +26,20 @@ qt_add_qml_module(
   CaptureWindow.qml
   SelectionRect.qml
   SelectAreaButtons.qml
+  SelectionActions.qml
   SOURCES
   screenshotprovider.h
   globalvalues.h
   globalvalues.cpp
   imagesaver.h
   imagesaver.cpp
+  irregularshot.h
+  irregularshot.cpp
   QML_FILES
   lightshot.js
-  SelectionActions.qml
-  QML_FILES PinWindow.qml)
+  QML_FILES
+  PinWindow.qml)
+  IrregularWindow.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 

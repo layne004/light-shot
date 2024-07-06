@@ -1,4 +1,5 @@
 #include "imagesaver.h"
+#include <QQuickItemGrabResult>
 #include <QClipboard>
 #include <QDir>
 #include <QEventLoop>
@@ -6,7 +7,6 @@
 #include <QMargins>
 #include <QPainter>
 #include <QPixmap>
-#include <QQuickItemGrabResult>
 #include <QScreen>
 #include <QSharedPointer>
 
@@ -21,7 +21,7 @@ void ImageSaver::saveImage(QQuickItem *item, QRect area, QString filepath)
 
     if (!grabResult) {
         qDebug("Failed to grab");
-        exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
     }
 
     QEventLoop loop;

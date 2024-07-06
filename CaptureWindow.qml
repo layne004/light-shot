@@ -25,6 +25,7 @@ Window {
     }
 
     //InActive Region
+
     Rectangle{
         id:topOverlay;
         x:0; y:0;
