@@ -1,13 +1,18 @@
 function selectRect() {
+    flag = true
     mainWindow.hide();
     rectTimer.start();
 }
 
 function selectIrregular(){
-
+    flag = false
     // mainWindow.visible=false;
     mainWindow.hide();
     rectTimer.start();
+}
+
+function fullScreen(){
+    fullscreenSave.saveFullScreen(mainWindow);
 }
 
 // SelectionRect's function

@@ -107,10 +107,15 @@ ApplicationWindow {
         }
     }
 
+    ImageSaver{
+        id:fullscreenSave
+    }
+
     MainActions{
         id:actions
-        rectRegion.onTriggered: {Controller.selectRect(); flag = true}
-        irreguler.onTriggered: {Controller.selectIrregular(); flag = false}
+        rectRegion.onTriggered: Controller.selectRect()
+        irreguler.onTriggered: Controller.selectIrregular()
+        fullscreen.onTriggered: Controller.fullScreen();
     }
 
     Loader{

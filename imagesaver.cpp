@@ -1,5 +1,4 @@
 #include "imagesaver.h"
-#include <QQuickItemGrabResult>
 #include <QClipboard>
 #include <QDir>
 #include <QEventLoop>
@@ -7,8 +6,11 @@
 #include <QMargins>
 #include <QPainter>
 #include <QPixmap>
+#include <QQuickItemGrabResult>
 #include <QScreen>
 #include <QSharedPointer>
+#include <QTimer>
+#include <QWindow>
 
 ImageSaver::ImageSaver(QObject *parent)
     : QObject{parent}
@@ -156,6 +158,23 @@ void ImageSaver::saveCanvasToClip(QQuickItem *image, QQuickItem *canvas, QRect a
         qDebug() << "Failed to get clipboard.\n";
 
     final.save(m_tempPath);
+}
+
+void ImageSaver::saveFullScreen(QObject *window, QRect area)
+{
+    if (!window) {
+        qDebug() << "Failed to get window";
+        return;
+    }
+
+    QWindow *qmlWindow = qobject_cast<QWindow *>(window);
+
+    qmlWindow->hide();
+
+    QTimer::singleShot(400, [qmlWindow, area, this]() {
+        saveScreenshotToClip(area);
+        qmlWindow->show();
+    });
 }
 
 QString ImageSaver::getTempPath() const
