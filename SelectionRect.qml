@@ -26,7 +26,10 @@ Item{
 
     property int modeValue: mode.Resizing
     property var lines: []
-
+    property var squares: []
+    property var circles: []
+    property point squarePos
+    property point circlePos
 
     Rectangle{
         id:rect
@@ -190,6 +193,26 @@ Item{
                     drawCanvas.requestPaint();
                 break;
             }
+            case mode.Square:{
+                cursorShape = Qt.CrossCursor;
+                if(active){
+                    squarePos = centroid.position;
+                    squares.push({x: squarePos.x, y: squarePos.y, width: 0, height: 0});
+                    drawCanvas.requestPaint();
+                }else
+                    drawCanvas.requestPaint();
+                break;
+            }
+            case mode.Circle:{
+                cursorShape = Qt.CrossCursor;
+                if(active){
+                    circlePos = centroid.position;
+                    circles.push({x: circlePos.x, y: circlePos.y, width: 0, height: 0});
+                    drawCanvas.requestPaint();
+                }else
+                    drawCanvas.requestPaint();
+                break;
+            }
             }
 
         }
@@ -213,6 +236,16 @@ Item{
                 lines[lines.length - 1].endY = centroid.position.y;
                 drawCanvas.requestPaint();
                 break;
+            case mode.Square:
+                squares[squares.length - 1].width = centroid.position.x - squarePos.x;
+                squares[squares.length - 1].height = centroid.position.y - squarePos.y;
+                drawCanvas.requestPaint();
+                break;
+            case mode.Circle:
+                circles[circles.length - 1].width = centroid.position.x - circlePos.x;
+                circles[circles.length - 1].height = centroid.position.y - circlePos.y;
+                drawCanvas.requestPaint();
+                break;
             }
 
         }
@@ -226,9 +259,10 @@ Item{
             onPaint: {
                 var ctx = drawCanvas.getContext("2d");
                 ctx.clearRect(drawCanvas.x, drawCanvas.y, drawCanvas.width, drawCanvas.height);
+                // 不使用switch(modeValue)的原因是，每次新绘制开始前可能还需要将之前的痕迹绘制好。
 
                 //先画pencil痕迹
-                ctx.lineWidth = 3;
+                ctx.lineWidth = 2;
                 ctx.strokeStyle = "red";
                 ctx.beginPath();
                 for (var i = 0; i < lines.length; i++) {
@@ -243,16 +277,26 @@ Item{
                 ctx.stroke();
 
                 //再画line
-                ctx.lineWidth = 2;
-                ctx.strokeStyle = "red";
                 ctx.beginPath();
 
                 for (var a = 0; a < lines.length; a++) {
                     ctx.moveTo(lines[a].startX, lines[a].startY);
                     ctx.lineTo(lines[a].endX, lines[a].endY);
                 }
-
                 ctx.stroke();
+
+                //draw squares
+                ctx.beginPath();
+                for(var s = 0; s < squares.length; s++)
+                    ctx.rect(squares[s].x, squares[s].y, squares[s].width, squares[s].height);
+                ctx.stroke();
+
+                //draw circles
+                ctx.beginPath();
+                for(var c = 0; c < circles.length; c++)
+                    ctx.ellipse(circles[c].x, circles[c].y, circles[c].width, circles[c].height);
+                ctx.stroke();
+
             }
 
     }

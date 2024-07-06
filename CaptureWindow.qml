@@ -80,6 +80,8 @@ Window {
         }
         pencil.onTriggered: selectRect.modeValue = selectRect.mode.Pencil
         line.onTriggered: selectRect.modeValue = selectRect.mode.Line
+        square.onTriggered: selectRect.modeValue = selectRect.mode.Square
+        circle.onTriggered: selectRect.modeValue = selectRect.mode.Circle
     }
 
     Component.onCompleted: showFullScreen()
