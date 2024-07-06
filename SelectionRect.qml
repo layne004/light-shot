@@ -115,6 +115,18 @@ Item{
                 }
 
                 SelectAreaButtons{
+                    action: actions.pin
+                    visible: modeValue === mode.Resizing? false:true
+                    onVisibleChanged: {
+                        if(visible)
+                            animation.start();
+                    }
+                    onHoveredChanged: {
+                        Func.setPropagation(hovered);
+                    }
+                }
+
+                SelectAreaButtons{
                     action: actions.accept
                     visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {

@@ -7,6 +7,7 @@ Item {
     property alias line: _line
     property alias square: _square
     property alias circle: _circle
+    property alias pin: _pin
     property alias close: _close
     property alias accept: _accept
 
@@ -38,6 +39,11 @@ Item {
     Action{
         id:_redo
         icon.source: "/img/material/redo.svg"
+    }
+
+    Action{
+        id:_pin
+        icon.source: "/img/material/pin.svg"
     }
 
     Action{

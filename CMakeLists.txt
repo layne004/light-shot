@@ -34,7 +34,8 @@ qt_add_qml_module(
   imagesaver.cpp
   QML_FILES
   lightshot.js
-  SelectionActions.qml)
+  SelectionActions.qml
+  QML_FILES PinWindow.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 
