@@ -59,12 +59,24 @@ void IrregularShot::capture(QQuickItem *item, const QVariantList &polygon)
     painter.drawImage(0, 0, grabbedImage);
     painter.end();
 
+    //获取不规则区域的边界矩形
+    QRect boudingRect = clipRegion.boundingRect();
+    //裁剪出不规则区域
+    QImage croppedImage = resultImage.copy(boudingRect);
+
+    //放大不规则区域
+    int scaleFactor = 2; //放大倍数
+    QImage enlaredImage = croppedImage.scaled(croppedImage.width() * scaleFactor,
+                                              croppedImage.height() * scaleFactor,
+                                              Qt::KeepAspectRatio,
+                                              Qt::SmoothTransformation);
+
     QClipboard *clipboard = QGuiApplication::clipboard();
 
     m_tempPath = QDir::temp().absoluteFilePath(GlobalValues::time());
-    if (resultImage.save(m_tempPath)) {
+    if (enlaredImage.save(m_tempPath)) {
         qDebug() << "filepath is:" << m_tempPath;
-        clipboard->setImage(resultImage);
+        clipboard->setImage(enlaredImage);
         qDebug() << "Irregular region saved successfully";
     } else {
         qDebug() << "Failed to save the image";
