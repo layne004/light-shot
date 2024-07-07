@@ -15,7 +15,7 @@ ApplicationWindow {
     id:mainWindow
     width: 740
     height: 580
-    visible: true
+    visible: false
     title: qsTr("lightshot")
 
     header: ToolBar{
@@ -143,27 +143,39 @@ ApplicationWindow {
         }
     }
 
-    // SystemTrayIcon{
-    //     id:sysTray
-    //     visible: true
-    //     icon.source: "/img/app/lightshot.ico"
+    SystemTrayIcon{
+        id:sysTray
+        visible: true
+        icon.source: "qrc:///img/app/lightshot.ico"
 
-    //     //此处的MenuItem是Qt.labs的，所以没有action property
-    //     menu: Menu{
-    //         MenuItem{
-    //             text: qsTr("Quit")
-    //             onTriggered: Qt.quit();
-    //         }
-    //     }
+        //此处的MenuItem是Qt.labs的，所以没有action property
+        menu: Menu{
+            MenuItem{
+                text: qsTr("Full Screen")
+                onTriggered: actions.fullscreen.triggered()
+            }
+            MenuItem{
+                text: qsTr("Irregular Screenshot")
+                onTriggered: actions.irreguler.triggered()
+            }
+            MenuSeparator{}
+            MenuItem{
+                text: qsTr("open launcher")
+                onTriggered: mainWindow.show();
+            }
+            MenuSeparator{}
+            MenuItem{
+                text: qsTr("Quit")
+                onTriggered: Qt.quit();
+            }
+        }
 
-    //     onActivated: {
-    //         //todo 调用rectRegion
-    //     }
+        onActivated: {
+            //todo 调用rectRegion
+            actions.rectRegion.triggered();
+        }
 
-    //     Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
-    // }
-
-
-
+        Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
+    }
 
 }

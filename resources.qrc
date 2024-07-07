@@ -13,6 +13,5 @@
         <file>img/material/text.svg</file>
         <file>img/material/undo.svg</file>
         <file>img/app/lightshot.ico</file>
-        <file>rectscreenshot.js</file>
     </qresource>
 </RCC>

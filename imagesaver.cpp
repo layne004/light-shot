@@ -174,7 +174,7 @@ void ImageSaver::saveFullScreen(QObject *window, QRect area)
     qmlWindow->hide();
 
     QTimer::singleShot(400, [qmlWindow, area, this]() {
-        saveScreenshotToClip(area);
+        saveScreenshot(area);
         qmlWindow->show();
     });
 }

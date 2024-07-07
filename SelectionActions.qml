@@ -13,46 +13,46 @@ Item {
 
     Action{
         id:_pencil
-        icon.source: "/img/material/pencil.svg"
+        icon.source: "qrc:///img/material/pencil.svg"
     }
 
     Action{
         id:_line
-        icon.source: "/img/material/line.svg"
+        icon.source: "qrc:///img/material/line.svg"
     }
 
     Action{
         id:_square
-        icon.source: "/img/material/square.svg"
+        icon.source: "qrc:///img/material/square.svg"
     }
 
     Action{
         id:_circle
-        icon.source: "/img/material/circle.svg"
+        icon.source: "qrc:///img/material/circle.svg"
     }
 
     Action{
         id:_undo
-        icon.source: "/img/material/undo.svg"
+        icon.source: "qrc:///img/material/undo.svg"
     }
 
     Action{
         id:_redo
-        icon.source: "/img/material/redo.svg"
+        icon.source: "qrc:///img/material/redo.svg"
     }
 
     Action{
         id:_pin
-        icon.source: "/img/material/pin.svg"
+        icon.source: "qrc:///img/material/pin.svg"
     }
 
     Action{
         id:_close
-        icon.source: "/img/material/close.svg"
+        icon.source: "qrc:///img/material/close.svg"
     }
 
     Action{
         id:_accept
-        icon.source: "/img/material/accept.svg"
+        icon.source: "qrc:///img/material/accept.svg"
     }
 }
