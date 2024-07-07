@@ -9,6 +9,9 @@ Window {
     height: 200
     color: "transparent"
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+    property url imgSource: _pinImg.source
+    property alias pinImg: _pinImg
+    property real ratio;
 
     Menu{
         id:contextMenu
@@ -31,27 +34,22 @@ Window {
       id: rect
       anchors.fill: parent
       anchors.margins: 5
+
+      Image{
+          id:_pinImg
+          anchors.fill: rect
+          fillMode: Image.PreserveAspectFit
+      }
+
       DragHandler{
           id:moveHandler
           dragThreshold: 0
           onActiveChanged: {
               if(active)
-                  main.startSystemMove();
+                  pinWindow.startSystemMove();
 
           }
       }
-
-      layer.enabled: true
-      layer.effect: DropShadow {
-          anchors.fill: rect
-          horizontalOffset: 0
-          verticalOffset: 0
-          radius:  moveHandler.active?8:5
-          samples: 10
-          source: rect
-          color: "#00974A"
-          Behavior on radius { NumberAnimation { duration: 100 } }
-        }
 
     }
 
@@ -63,6 +61,31 @@ Window {
                        if(ep.button === Qt.RightButton)
                        contextMenu.popup();
                    }
+    }
+
+    WheelHandler{
+        onWheel: (wheel)=>{
+                const scaleFactor = Math.pow(1.0002, wheel.angleDelta.y)
+                const newWidth = pinWindow.width * scaleFactor
+                const newHeight = pinWindow.height * scaleFactor
+                const aspectRatio = pinWindow.width / pinWindow.height
+                if (newWidth / newHeight !== aspectRatio) {
+                    pinWindow.setGeometry(pinWindow.x, pinWindow.y, newWidth, newWidth / aspectRatio)
+                }else{
+                    pinWindow.setGeometry(pinWindow.x, pinWindow.y, newWidth, newHeight)
+                }
+        }
+    }
+
+    DropShadow {
+        anchors.fill: rect
+        horizontalOffset: 0
+        verticalOffset: 0
+        radius:  moveHandler.active?8:5
+        samples: 10
+        source: rect
+        color: "#00974A"
+        Behavior on radius { NumberAnimation { duration: 100 } }
     }
 
 }

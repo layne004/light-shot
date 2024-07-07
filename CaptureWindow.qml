@@ -5,6 +5,7 @@
 import QtQuick
 import QtQuick.Controls
 import lightshot
+import "rectscreenshot.js" as Func
 
 Window {
     id:captureWindow
@@ -13,6 +14,9 @@ Window {
     property alias selectArea: selectRect.selection
     property string temp;
     property var rectSize: Qt.rect(selectArea.x, selectArea.y, selectArea.width, selectArea.height)
+    property int modeResize: selectRect.mode.Resizing
+    property int modeDrag: selectRect.mode.Dragging;
+    property alias pinWindow: pinloader.item
 
     ImageSaver{
         id:saver;
@@ -66,23 +70,26 @@ Window {
         Keys.onEscapePressed: close();
     }
 
+    Loader{
+        id:pinloader
+
+        onLoaded: {
+            item.closing.connect(function(){
+                source = "";
+                captureWindow.close();
+            })
+        }
+    }
+
     SelectionActions{
         id:actions
         close.onTriggered: {captureWindow.close();}
-        accept.onTriggered: {
-            if(selectRect.modeValue === selectRect.mode.Resizing
-                    && selectRect.modeValue === selectRect.mode.Dragging)
-                saver.saveImageToClip(cw_image, rectSize);
-            else{
-                saver.saveCanvasToClip(cw_image, selectRect.pencilCanvas, rectSize);
-            }
-            temp = saver.tempPath;
-            captureWindow.close();
-        }
+        accept.onTriggered: Func.acceptAction();
         pencil.onTriggered: selectRect.modeValue = selectRect.mode.Pencil
         line.onTriggered: selectRect.modeValue = selectRect.mode.Line
         square.onTriggered: selectRect.modeValue = selectRect.mode.Square
         circle.onTriggered: selectRect.modeValue = selectRect.mode.Circle
+        pin.onTriggered: Func.pinAction()
     }
 
     Component.onCompleted: showFullScreen()

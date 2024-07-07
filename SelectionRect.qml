@@ -101,9 +101,9 @@ Item{
                         Func.setPropagation(hovered);
                     }
                 }
-                //todo 'redo/undo'
+
                 SelectAreaButtons{
-                    action: actions.close
+                    action: actions.pin
                     visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)
@@ -113,9 +113,9 @@ Item{
                         Func.setPropagation(hovered);
                     }
                 }
-
+                //todo 'redo/undo'
                 SelectAreaButtons{
-                    action: actions.pin
+                    action: actions.close
                     visible: modeValue === mode.Resizing? false:true
                     onVisibleChanged: {
                         if(visible)

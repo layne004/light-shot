@@ -37,6 +37,7 @@ qt_add_qml_module(
   irregularshot.cpp
   QML_FILES
   lightshot.js
+  rectscreenshot.js
   QML_FILES
   PinWindow.qml
   IrregularWindow.qml)
