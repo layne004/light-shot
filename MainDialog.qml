@@ -3,7 +3,6 @@ import QtQuick.Dialogs
 import QtCore
 
 Item {
-
     property alias fileSave: _fileSave
 
     FileDialog{

@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
+import lightshot
 
 Window {
     id: pinWindow
@@ -13,6 +14,10 @@ Window {
     property alias pinImg: _pinImg
     property real ratio;
 
+    ImageSaver{
+        id:pinSaver
+    }
+
     Menu{
         id:contextMenu
 
@@ -22,8 +27,11 @@ Window {
 
         MenuItem{
             text: qsTr("save to file")
+            onTriggered: pinSaver.copyAndSave(_pinImg.source);
         }
+
         MenuSeparator{}
+
         MenuItem{
             text: qsTr("close")
             onTriggered: pinWindow.close()

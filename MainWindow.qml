@@ -18,6 +18,8 @@ ApplicationWindow {
     visible: false
     title: qsTr("lightshot")
 
+    property bool shouldClose: false
+
     header: ToolBar{
         RowLayout{
             ToolButton{
@@ -138,7 +140,7 @@ ApplicationWindow {
                     mwImage.source = "file://"+loader.item.irregularImgpath;
 
                 loader.source = ""
-                mainWindow.show();
+                // mainWindow.show();
             })
         }
     }
@@ -160,13 +162,18 @@ ApplicationWindow {
             }
             MenuSeparator{}
             MenuItem{
-                text: qsTr("open launcher")
+                text: qsTr("Open launcher")
                 onTriggered: mainWindow.show();
             }
             MenuSeparator{}
+            // MenuItem{
+            //     text: qsTr("About")
+            //     // onTriggered:
+            // }
+            // MenuSeparator{}
             MenuItem{
                 text: qsTr("Quit")
-                onTriggered: Qt.quit();
+                onTriggered: {shouldClose = true; Qt.quit();}
             }
         }
 
@@ -176,6 +183,16 @@ ApplicationWindow {
         }
 
         Component.onCompleted: showMessage("","I have been started and am running in the background! Right-click the tray icon to view more options.", 50)
+    }
+
+    onClosing: (close)=>{
+        if(!shouldClose){
+            close.accepted = false;
+            mainWindow.hide();
+        }else{
+            close.accepted = true;
+        }
+
     }
 
 }
