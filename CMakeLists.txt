@@ -23,6 +23,7 @@ qt_add_qml_module(
   MainWindow.qml
   MainButtons.qml
   MainActions.qml
+  MainDialog.qml
   CaptureWindow.qml
   SelectionRect.qml
   SelectAreaButtons.qml

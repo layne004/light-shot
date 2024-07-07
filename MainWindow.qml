@@ -40,11 +40,15 @@ ApplicationWindow {
             color: "#fcfcfc"
             border.color: "#d2d2d2"
             Image{
+                property bool isImageChanged: false
                 id:mwImage
                 source: "image://screenshot/current"
                 fillMode: Image.PreserveAspectFit
                 anchors.fill: parent
                 anchors.margins: 5
+                onSourceChanged: {
+                    mwImage.isImageChanged = true;
+                }
             }
         }
         Rectangle{
@@ -108,11 +112,17 @@ ApplicationWindow {
     }
 
     ImageSaver{
-        id:fullscreenSave
+        id:screenSaver
+    }
+
+    MainDialog{
+        id:dialog
     }
 
     MainActions{
         id:actions
+        save.onTriggered: Controller.save();
+        saveAs.onTriggered: Controller.saveAs();
         rectRegion.onTriggered: Controller.selectRect()
         irreguler.onTriggered: Controller.selectIrregular()
         fullscreen.onTriggered: Controller.fullScreen();

@@ -37,7 +37,11 @@ public:
     //保存画布的内容
     Q_INVOKABLE void saveCanvasToClip(QQuickItem *image, QQuickItem *canvas, QRect area = QRect());
 
+    //保存全屏
     Q_INVOKABLE void saveFullScreen(QObject *window, QRect area = QRect());
+
+    //save and saveAs
+    Q_INVOKABLE bool copyAndSave(QString sourcePath, QString targetPath = GlobalValues::filePath());
 
     QString getTempPath() const;
     void setTempPath(const QString &newTempPath);

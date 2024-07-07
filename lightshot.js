@@ -1,3 +1,25 @@
+function save(){
+    screenSaver.copyAndSave(mwImage.source);
+}
+
+function saveAs(){
+    // cancel
+    dialog.fileSave.rejected.connect(()=>{return})
+    // accept
+    dialog.fileSave.accepted.
+    connect(()=>{
+                let url = new URL(dialog.fileSave.selectedFile);
+                //remove "file://"
+                let path = url.pathname;
+
+                if(path.toString() !== "")
+                    screenSaver.copyAndSave(mwImage.source, path);
+                return;
+            })
+
+    dialog.fileSave.open();
+}
+
 function selectRect() {
     flag = true
     mainWindow.hide();
@@ -12,7 +34,7 @@ function selectIrregular(){
 }
 
 function fullScreen(){
-    fullscreenSave.saveFullScreen(mainWindow);
+    screenSaver.saveFullScreen(mainWindow);
 }
 
 // SelectionRect's function

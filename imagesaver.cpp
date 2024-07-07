@@ -11,6 +11,7 @@
 #include <QSharedPointer>
 #include <QTimer>
 #include <QWindow>
+#include "screenshotprovider.h"
 
 ImageSaver::ImageSaver(QObject *parent)
     : QObject{parent}
@@ -35,9 +36,10 @@ void ImageSaver::saveImage(QQuickItem *item, QRect area, QString filepath)
 
     m_tempPath = filepath;
 
-    if (area.isEmpty())
-        gs = grabResult->saveToFile(filepath);
-    else {
+    if (area.isEmpty()) {
+        qDebug() << "empty\n";
+        gs = grabResult->image().copy(area).save(filepath);
+    } else {
         area -= QMargins{2, 2, 2, 2};
         gs = grabResult->image().copy(area).save(filepath);
     }
@@ -175,6 +177,45 @@ void ImageSaver::saveFullScreen(QObject *window, QRect area)
         saveScreenshotToClip(area);
         qmlWindow->show();
     });
+}
+
+bool ImageSaver::copyAndSave(QString sourcePath, QString targetPath)
+{
+    QImage image;
+    QString path = sourcePath;
+    if (path.startsWith("image://")) {
+        QString providerId = path.section('/', 2, 2);
+        QString imageId = path.section('/', 3);
+
+        QQmlImageProviderBase *base = qmlEngine(this)->imageProvider(providerId);
+        ScreenshotProvider *provider = dynamic_cast<ScreenshotProvider *>(base);
+
+        if (provider) {
+            image = provider->getFromCache(imageId);
+        } else {
+            qDebug() << "Error: ImageProvider not found for ID:" << providerId;
+            return false;
+        }
+    } else {
+        if (path.startsWith("file://")) {
+            QString filepath = path.section('/', 2);
+            image.load(filepath);
+        } else
+            image.load(path);
+    }
+
+    if (!image.isNull()) {
+        bool s = image.save(targetPath);
+        if (s)
+            return true;
+        else {
+            qDebug() << "Error: failed to save image.";
+            return false;
+        }
+    } else {
+        qDebug() << "Error: image is Null!";
+        return false;
+    }
 }
 
 QString ImageSaver::getTempPath() const
