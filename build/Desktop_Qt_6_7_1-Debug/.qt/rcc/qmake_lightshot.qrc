@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/lightshot">
-    <file alias="qmldir">/root/qq_test/light-shot/build/Desktop_Qt_6_7_1-Debug/lightshot/qmldir</file>
-  </qresource>
-</RCC>
-
