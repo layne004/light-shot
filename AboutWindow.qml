@@ -18,7 +18,7 @@ Window{
             Image {
                 id: icon
                 Layout.preferredWidth: 100
-                source: "file:///root/lightshot.ico"
+                source: "qrc:///img/app/lightshot.ico"
                 fillMode: Image.PreserveAspectFit
             }
         }

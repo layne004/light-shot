@@ -110,11 +110,19 @@ ApplicationWindow {
                 loader.source = "CaptureWindow.qml"
             else
                 loader.source = "IrregularWindow.qml";
+
         }
     }
 
     ImageSaver{
         id:screenSaver
+    }
+
+    Connections{
+        target: screenSaver
+        function onSaveSuccessfully(){
+            mwImage.source = "file://"+screenSaver.tempPath;
+        }
     }
 
     MainDialog{

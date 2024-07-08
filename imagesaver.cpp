@@ -49,7 +49,7 @@ void ImageSaver::saveImage(QQuickItem *item, QRect area, QString filepath)
 void ImageSaver::saveScreenshot(QRect clip, QString filename)
 {
     QScreen *screen = QGuiApplication::primaryScreen();
-    m_tempPath = filename;
+    setTempPath(filename);
     if (!screen)
         qDebug() << "Failed to get screen!";
     else {
@@ -175,7 +175,7 @@ void ImageSaver::saveFullScreen(QObject *window, QRect area)
 
     QTimer::singleShot(400, [qmlWindow, area, this]() {
         saveScreenshot(area);
-        qmlWindow->show();
+        emit saveSuccessfully();
     });
 }
 

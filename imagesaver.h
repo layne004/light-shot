@@ -48,6 +48,7 @@ public:
 
 signals:
     void tempPathChanged();
+    void saveSuccessfully();
 
 private:
     QString m_tempPath;
