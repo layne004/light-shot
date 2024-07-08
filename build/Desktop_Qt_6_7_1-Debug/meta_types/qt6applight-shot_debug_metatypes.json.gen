@@ -1,0 +1,338 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "ImageSaver",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickItem*"
+                            },
+                            {
+                                "name": "area",
+                                "type": "QRect"
+                            },
+                            {
+                                "name": "filepath",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "saveImage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickItem*"
+                            },
+                            {
+                                "name": "area",
+                                "type": "QRect"
+                            }
+                        ],
+                        "isCloned": true,
+                        "name": "saveImage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickItem*"
+                            }
+                        ],
+                        "isCloned": true,
+                        "name": "saveImage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "clip",
+                                "type": "QRect"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "saveScreenshot",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "clip",
+                                "type": "QRect"
+                            }
+                        ],
+                        "isCloned": true,
+                        "name": "saveScreenshot",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "isCloned": true,
+                        "name": "saveScreenshot",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickItem*"
+                            },
+                            {
+                                "name": "area",
+                                "type": "QRect"
+                            }
+                        ],
+                        "name": "saveImageToClip",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickItem*"
+                            }
+                        ],
+                        "isCloned": true,
+                        "name": "saveImageToClip",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "area",
+                                "type": "QRect"
+                            }
+                        ],
+                        "name": "saveScreenshotToClip",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "isCloned": true,
+                        "name": "saveScreenshotToClip",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "tempPath",
+                        "notify": "tempPathChanged",
+                        "read": "getTempPath",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setTempPath"
+                    }
+                ],
+                "qualifiedClassName": "ImageSaver",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "tempPathChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "imagesaver.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "ScreenshotManager",
+                "object": true,
+                "qualifiedClassName": "ScreenshotManager",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "mouseClicked",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QAbstractNativeEventFilter"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "screenshotmanager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "WindowRect",
+                "object": true,
+                "qualifiedClassName": "WindowRect",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "rect",
+                                "type": "QRect"
+                            }
+                        ],
+                        "name": "selectRect",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "event",
+                                "type": "QEvent*"
+                            }
+                        ],
+                        "name": "on_mouseSignal",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "event",
+                                "type": "QShowEvent*"
+                            }
+                        ],
+                        "name": "showEvent",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "event",
+                                "type": "QHideEvent*"
+                            }
+                        ],
+                        "name": "hideEvent",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "event",
+                                "type": "QMouseEvent*"
+                            }
+                        ],
+                        "name": "mousePressEvent",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            },
+            {
+                "className": "MouseEvent",
+                "object": true,
+                "qualifiedClassName": "MouseEvent",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "event",
+                                "type": "QEvent*"
+                            }
+                        ],
+                        "name": "mouseSignal",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "windowrect.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "WindowUnderCursor",
+                "methods": [
+                    {
+                        "access": "public",
+                        "name": "captureWindowUnderCursor",
+                        "returnType": "QImage"
+                    },
+                    {
+                        "access": "public",
+                        "name": "savecapture",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "WindowUnderCursor",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "windowundercursor.h",
+        "outputRevision": 68
+    }
+]

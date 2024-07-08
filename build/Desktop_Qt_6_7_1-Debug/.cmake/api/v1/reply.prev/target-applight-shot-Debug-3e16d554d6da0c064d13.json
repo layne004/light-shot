@@ -1,0 +1,1552 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "applight-shot"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"_qt_internal_create_executable",
+			"qt6_add_executable",
+			"qt_add_executable",
+			"install",
+			"target_link_libraries",
+			"set_target_properties",
+			"include",
+			"find_package",
+			"qt6_add_qml_module",
+			"qt_add_qml_module",
+			"find_dependency",
+			"_qt_internal_find_qt_dependencies",
+			"set_property",
+			"_qt_internal_find_third_party_dependencies",
+			"add_dependencies",
+			"qt6_target_qml_sources",
+			"_qt_internal_scan_qml_imports",
+			"_qt_internal_generate_deploy_qml_imports_script",
+			"cmake_language",
+			"_qt_internal_finalize_executable",
+			"qt6_finalize_target",
+			"target_include_directories",
+			"_qt_internal_qml_type_registration",
+			"target_compile_features",
+			"target_sources",
+			"qt6_extract_metatypes",
+			"__qt_propagate_generated_resource",
+			"_qt_internal_process_resource",
+			"qt6_add_resources",
+			"_qt_internal_target_enable_qmlcachegen",
+			"_qt_internal_expose_deferred_files_to_ide"
+		],
+		"files" : 
+		[
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"CMakeLists.txt",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Quick/Qt6QuickTargets.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Quick/Qt6QuickConfig.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6/Qt6Config.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlTargets.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlConfig.cmake",
+			"/usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Quick/Qt6QuickDependencies.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessTargets.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlDependencies.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6OpenGL/Qt6OpenGLVersionlessTargets.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6OpenGL/Qt6OpenGLConfig.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
+			"/usr/share/cmake/Modules/FindOpenGL.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6/FindWrapOpenGL.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"/opt/Qt/6.7.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:743:EVAL"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 869,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 575,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 629,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 73,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 70,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"file" : 4,
+				"parent" : 10
+			},
+			{
+				"command" : 8,
+				"file" : 4,
+				"line" : 169,
+				"parent" : 11
+			},
+			{
+				"file" : 3,
+				"parent" : 12
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 55,
+				"parent" : 13
+			},
+			{
+				"file" : 2,
+				"parent" : 14
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 61,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 1,
+				"line" : 26,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 776,
+				"parent" : 17
+			},
+			{
+				"command" : 5,
+				"file" : 5,
+				"line" : 392,
+				"parent" : 18
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 43,
+				"parent" : 13
+			},
+			{
+				"file" : 10,
+				"parent" : 20
+			},
+			{
+				"command" : 12,
+				"file" : 10,
+				"line" : 42,
+				"parent" : 21
+			},
+			{
+				"command" : 11,
+				"file" : 9,
+				"line" : 111,
+				"parent" : 22
+			},
+			{
+				"command" : 8,
+				"file" : 8,
+				"line" : 76,
+				"parent" : 23
+			},
+			{
+				"file" : 7,
+				"parent" : 24
+			},
+			{
+				"command" : 7,
+				"file" : 7,
+				"line" : 56,
+				"parent" : 25
+			},
+			{
+				"file" : 6,
+				"parent" : 26
+			},
+			{
+				"command" : 6,
+				"file" : 6,
+				"line" : 61,
+				"parent" : 27
+			},
+			{
+				"command" : 7,
+				"file" : 7,
+				"line" : 44,
+				"parent" : 25
+			},
+			{
+				"file" : 13,
+				"parent" : 29
+			},
+			{
+				"command" : 12,
+				"file" : 13,
+				"line" : 42,
+				"parent" : 30
+			},
+			{
+				"command" : 11,
+				"file" : 9,
+				"line" : 111,
+				"parent" : 31
+			},
+			{
+				"command" : 8,
+				"file" : 8,
+				"line" : 76,
+				"parent" : 32
+			},
+			{
+				"file" : 12,
+				"parent" : 33
+			},
+			{
+				"command" : 7,
+				"file" : 12,
+				"line" : 60,
+				"parent" : 34
+			},
+			{
+				"file" : 11,
+				"parent" : 35
+			},
+			{
+				"command" : 6,
+				"file" : 11,
+				"line" : 61,
+				"parent" : 36
+			},
+			{
+				"command" : 11,
+				"file" : 9,
+				"line" : 111,
+				"parent" : 22
+			},
+			{
+				"command" : 8,
+				"file" : 8,
+				"line" : 76,
+				"parent" : 38
+			},
+			{
+				"file" : 15,
+				"parent" : 39
+			},
+			{
+				"command" : 7,
+				"file" : 15,
+				"line" : 60,
+				"parent" : 40
+			},
+			{
+				"file" : 14,
+				"parent" : 41
+			},
+			{
+				"command" : 6,
+				"file" : 14,
+				"line" : 61,
+				"parent" : 42
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"file" : 4,
+				"parent" : 44
+			},
+			{
+				"command" : 8,
+				"file" : 4,
+				"line" : 169,
+				"parent" : 45
+			},
+			{
+				"file" : 17,
+				"parent" : 46
+			},
+			{
+				"command" : 7,
+				"file" : 17,
+				"line" : 55,
+				"parent" : 47
+			},
+			{
+				"file" : 16,
+				"parent" : 48
+			},
+			{
+				"command" : 6,
+				"file" : 16,
+				"line" : 61,
+				"parent" : 49
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 576,
+				"parent" : 2
+			},
+			{
+				"command" : 11,
+				"file" : 9,
+				"line" : 111,
+				"parent" : 22
+			},
+			{
+				"command" : 8,
+				"file" : 8,
+				"line" : 76,
+				"parent" : 52
+			},
+			{
+				"file" : 21,
+				"parent" : 53
+			},
+			{
+				"command" : 7,
+				"file" : 21,
+				"line" : 43,
+				"parent" : 54
+			},
+			{
+				"file" : 20,
+				"parent" : 55
+			},
+			{
+				"command" : 14,
+				"file" : 20,
+				"line" : 33,
+				"parent" : 56
+			},
+			{
+				"command" : 11,
+				"file" : 9,
+				"line" : 36,
+				"parent" : 57
+			},
+			{
+				"command" : 8,
+				"file" : 8,
+				"line" : 76,
+				"parent" : 58
+			},
+			{
+				"file" : 19,
+				"parent" : 59
+			},
+			{
+				"command" : 8,
+				"file" : 19,
+				"line" : 13,
+				"parent" : 60
+			},
+			{
+				"file" : 18,
+				"parent" : 61
+			},
+			{
+				"command" : 13,
+				"file" : 18,
+				"line" : 712,
+				"parent" : 62
+			},
+			{
+				"command" : 6,
+				"file" : 18,
+				"line" : 710,
+				"parent" : 62
+			},
+			{
+				"command" : 16,
+				"file" : 5,
+				"line" : 647,
+				"parent" : 18
+			},
+			{
+				"command" : 15,
+				"file" : 5,
+				"line" : 2747,
+				"parent" : 65
+			},
+			{
+				"file" : 1,
+				"line" : -1,
+				"parent" : 0
+			},
+			{
+				"command" : 21,
+				"file" : 22,
+				"line" : 1,
+				"parent" : 67
+			},
+			{
+				"command" : 20,
+				"file" : 0,
+				"line" : 774,
+				"parent" : 68
+			},
+			{
+				"command" : 19,
+				"file" : 0,
+				"line" : 678,
+				"parent" : 69
+			},
+			{
+				"command" : 18,
+				"file" : 0,
+				"line" : 678,
+				"parent" : 70
+			},
+			{
+				"command" : 17,
+				"file" : 5,
+				"line" : 3541,
+				"parent" : 71
+			},
+			{
+				"command" : 15,
+				"file" : 5,
+				"line" : 3346,
+				"parent" : 72
+			},
+			{
+				"command" : 23,
+				"file" : 5,
+				"line" : 541,
+				"parent" : 18
+			},
+			{
+				"command" : 22,
+				"file" : 5,
+				"line" : 3074,
+				"parent" : 74
+			},
+			{
+				"command" : 22,
+				"file" : 5,
+				"line" : 3099,
+				"parent" : 74
+			},
+			{
+				"command" : 24,
+				"file" : 1,
+				"line" : 58,
+				"parent" : 0
+			},
+			{
+				"command" : 26,
+				"file" : 5,
+				"line" : 2899,
+				"parent" : 74
+			},
+			{
+				"command" : 25,
+				"file" : 0,
+				"line" : 1415,
+				"parent" : 78
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 3065,
+				"parent" : 74
+			},
+			{
+				"command" : 29,
+				"file" : 5,
+				"line" : 590,
+				"parent" : 18
+			},
+			{
+				"command" : 28,
+				"file" : 0,
+				"line" : 337,
+				"parent" : 81
+			},
+			{
+				"command" : 27,
+				"file" : 0,
+				"line" : 2390,
+				"parent" : 82
+			},
+			{
+				"command" : 25,
+				"file" : 0,
+				"line" : 2004,
+				"parent" : 83
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 637,
+				"parent" : 18
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 30,
+				"file" : 5,
+				"line" : 2635,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 1244,
+				"parent" : 87
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2531,
+				"parent" : 65
+			},
+			{
+				"command" : 25,
+				"file" : 5,
+				"line" : 2683,
+				"parent" : 65
+			},
+			{
+				"command" : 29,
+				"file" : 5,
+				"line" : 2766,
+				"parent" : 65
+			},
+			{
+				"command" : 28,
+				"file" : 0,
+				"line" : 337,
+				"parent" : 106
+			},
+			{
+				"command" : 27,
+				"file" : 0,
+				"line" : 2390,
+				"parent" : 107
+			},
+			{
+				"command" : 25,
+				"file" : 0,
+				"line" : 2004,
+				"parent" : 108
+			},
+			{
+				"command" : 31,
+				"file" : 0,
+				"line" : 768,
+				"parent" : 68
+			},
+			{
+				"command" : 25,
+				"file" : 0,
+				"line" : 2117,
+				"parent" : 110
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DQT_QML_DEBUG -g -std=gnu++20 -fcolor-diagnostics"
+				},
+				{
+					"backtrace" : 51,
+					"fragment" : "-fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 51,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "QT_OPENGL_LIB"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "QT_QMLBUILTINS_LIB"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "QT_QMLINTEGRATION_LIB"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "QT_QMLMODELS_LIB"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "QT_QML_LIB"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "QT_QUICK_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_WIDGETS_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 75,
+					"path" : "/root/qq_test/light-shot"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQml/6.7.1"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQml/6.7.1/QtQml"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtCore/6.7.1"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtCore/6.7.1/QtCore"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtCore"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQmlBuiltins/6.7.1"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQmlBuiltins/6.7.1/QtQmlBuiltins"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQmlBuiltins"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQml"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQmlIntegration"
+				},
+				{
+					"backtrace" : 76,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtNetwork"
+				},
+				{
+					"backtrace" : 0,
+					"isSystem" : true,
+					"path" : "/root/qq_test/light-shot/build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/include"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtWidgets"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtGui"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQuick"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtQmlModels"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/opt/Qt/6.7.1/gcc_64/include/QtOpenGL"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					77,
+					51,
+					51
+				],
+				"standard" : "20"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				4,
+				5,
+				8,
+				10,
+				12,
+				14,
+				16,
+				18,
+				19,
+				21,
+				23,
+				25,
+				27,
+				29,
+				31,
+				33,
+				35,
+				36,
+				41
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 66,
+			"id" : "applight-shot_tooling::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 73,
+			"id" : "applight-shot_qmlimportscan::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "applight-shot_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "applight-shot_autogen::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "applight-shot::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 5,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-DQT_QML_DEBUG -g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/opt/Qt/6.7.1/gcc_64/lib:",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6Widgets.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/usr/lib/libSM.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/usr/lib/libICE.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/usr/lib/libX11.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/usr/lib/libXext.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "-lxcb",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6Quick.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6QmlModels.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 19,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6Qml.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 28,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6QmlBuiltins.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 37,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6Network.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 43,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6OpenGL.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 50,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6Gui.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 51,
+				"fragment" : "/opt/Qt/6.7.1/gcc_64/lib/libQt6Core.so.6.7.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 63,
+				"fragment" : "/usr/lib/libGLX.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 64,
+				"fragment" : "/usr/lib/libOpenGL.so",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "applight-shot",
+	"nameOnDisk" : "applight-shot",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files\\Generated",
+			"sourceIndexes" : 
+			[
+				0,
+				40,
+				41,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				17,
+				20,
+				22,
+				24,
+				26,
+				28,
+				30,
+				32,
+				34,
+				37,
+				38,
+				39
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				2,
+				4,
+				5,
+				8,
+				10,
+				12,
+				14,
+				16,
+				18,
+				19,
+				21,
+				23,
+				25,
+				27,
+				29,
+				31,
+				33,
+				35,
+				36
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				6,
+				7,
+				9,
+				11,
+				13,
+				15
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "resources.qrc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "main.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 79,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/meta_types/qt6applight-shot_debug_metatypes.json.gen",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 80,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/applight-shot_qmltyperegistrations.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 84,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.qt/rcc/qrc_qmake_lightshot.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 85,
+			"path" : "screenshotprovider.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 85,
+			"path" : "globalvalues.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 85,
+			"compileGroupIndex" : 0,
+			"path" : "globalvalues.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 85,
+			"path" : "imagesaver.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 85,
+			"compileGroupIndex" : 0,
+			"path" : "imagesaver.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 85,
+			"path" : "windowundercursor.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 85,
+			"compileGroupIndex" : 0,
+			"path" : "windowundercursor.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 85,
+			"path" : "windowrect.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 85,
+			"compileGroupIndex" : 0,
+			"path" : "windowrect.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 85,
+			"path" : "screenshotmanager.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 85,
+			"compileGroupIndex" : 0,
+			"path" : "screenshotmanager.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 86,
+			"path" : "MainWindow.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 88,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_qmlcache_loader.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 89,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_MainWindow_qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 90,
+			"path" : "MainButtons.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 91,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_MainButtons_qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 92,
+			"path" : "MainActions.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 93,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_MainActions_qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 94,
+			"path" : "CaptureWindow.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 95,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_CaptureWindow_qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 96,
+			"path" : "SelectionRect.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 97,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_SelectionRect_qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 98,
+			"path" : "SelectAreaButtons.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 99,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_SelectAreaButtons_qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 100,
+			"path" : "lightshot.js",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 101,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_lightshot_js.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 102,
+			"path" : "SelectionActions.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 103,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_SelectionActions_qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 104,
+			"path" : "Windowundercursor_.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 105,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_Windowundercursor__qml.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 109,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.qt/rcc/qrc_applight-shot_raw_qml_0.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 111,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.qt/rcc/qmake_lightshot.qrc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 111,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/lightshot/qmldir",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 111,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.qt/rcc/applight-shot_raw_qml_0.qrc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/timestamp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/EWIEGA46WW/qrc_resources.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/meta_types/qt6applight-shot_debug_metatypes.json.gen.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/applight-shot_qmltyperegistrations.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.qt/rcc/qrc_qmake_lightshot.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_qmlcache_loader.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_MainWindow_qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_MainButtons_qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_MainActions_qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_CaptureWindow_qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_SelectionRect_qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_SelectAreaButtons_qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_lightshot_js.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_SelectionActions_qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.rcc/qmlcache/applight-shot_Windowundercursor__qml.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/.qt/rcc/qrc_applight-shot_raw_qml_0.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/timestamp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/EWIEGA46WW/qrc_resources.cpp.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/meta_types/applight-shot_json_file_list.txt.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_1-Debug/meta_types/qt6applight-shot_debug_metatypes.json.rule",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 51,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6core_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6widgets_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6gui_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 19,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6qml_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 19,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6qmlbuiltins_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 19,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6network_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 9,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6quick_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 9,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6qmlmodels_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 9,
+			"path" : "/opt/Qt/6.7.1/gcc_64/metatypes/qt6opengl_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

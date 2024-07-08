@@ -2,16 +2,20 @@
 
 WindowUnderCursor::WindowUnderCursor(QObject *parent)
     : QObject{parent}
-{}
+{
+    qDebug() << "222222";
+    qDebug() << "777";
+}
 
 QImage WindowUnderCursor::captureWindowUnderCursor()
 
 {
-    qDebug() << "save successfully!";
+    qDebug() << "captureWindowUnderCursor";
     QPoint cursorPos = QCursor::pos();
     QWidget *widget = QApplication::widgetAt(cursorPos);
     if (!widget)
-        return QImage();
+        qDebug() << "99999";
+    return QImage();
     WId windowid = widget->winId();
     QScreen *screen = QGuiApplication::primaryScreen();
 
@@ -27,8 +31,13 @@ QImage WindowUnderCursor::captureWindowUnderCursor()
 
     return screenshot.toImage();
 }
+
 void WindowUnderCursor::savecapture()
 {
+    ScreenshotManager *s = new ScreenshotManager(this);
+    s->startListening();
+    qDebug() << "savecapture";
+    qDebug() << "";
     QImage image = captureWindowUnderCursor();
     if (image.isNull()) {
         qDebug() << "图像无效。";
@@ -46,4 +55,5 @@ void WindowUnderCursor::savecapture()
     } else {
         qDebug() << "保存图像失败。";
     }
+    // s->stopListening();
 }

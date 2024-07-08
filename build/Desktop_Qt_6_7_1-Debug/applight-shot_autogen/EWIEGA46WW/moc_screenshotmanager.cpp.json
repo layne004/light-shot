@@ -1,0 +1,28 @@
+{
+    "classes": [
+        {
+            "className": "ScreenshotManager",
+            "object": true,
+            "qualifiedClassName": "ScreenshotManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "mouseClicked",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                },
+                {
+                    "access": "public",
+                    "name": "QAbstractNativeEventFilter"
+                }
+            ]
+        }
+    ],
+    "inputFile": "screenshotmanager.h",
+    "outputRevision": 68
+}

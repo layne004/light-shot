@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="/lightshot/">
+    <file alias="MainWindow.qml">/root/qq_test/light-shot/MainWindow.qml</file>
+    <file alias="MainButtons.qml">/root/qq_test/light-shot/MainButtons.qml</file>
+    <file alias="MainActions.qml">/root/qq_test/light-shot/MainActions.qml</file>
+    <file alias="CaptureWindow.qml">/root/qq_test/light-shot/CaptureWindow.qml</file>
+    <file alias="SelectionRect.qml">/root/qq_test/light-shot/SelectionRect.qml</file>
+    <file alias="SelectAreaButtons.qml">/root/qq_test/light-shot/SelectAreaButtons.qml</file>
+    <file alias="lightshot.js">/root/qq_test/light-shot/lightshot.js</file>
+    <file alias="SelectionActions.qml">/root/qq_test/light-shot/SelectionActions.qml</file>
+    <file alias="Windowundercursor_.qml">/root/qq_test/light-shot/Windowundercursor_.qml</file>
+  </qresource>
+</RCC>
+

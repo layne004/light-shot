@@ -1,0 +1,4 @@
+/root/qq_test/light-shot/build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/include/../EWIEGA46WW/moc_imagesaver.cpp.json
+/root/qq_test/light-shot/build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/include/../EWIEGA46WW/moc_screenshotmanager.cpp.json
+/root/qq_test/light-shot/build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/include/../EWIEGA46WW/moc_windowrect.cpp.json
+/root/qq_test/light-shot/build/Desktop_Qt_6_7_1-Debug/applight-shot_autogen/include/../EWIEGA46WW/moc_windowundercursor.cpp.json

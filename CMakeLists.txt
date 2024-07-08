@@ -14,6 +14,14 @@ set(CMAKE_AUTORCC ON)
 qt_add_executable(applight-shot resources.qrc main.cpp)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 target_link_libraries(applight-shot PRIVATE Qt6::Widgets)
+find_package(X11 REQUIRED)
+target_link_libraries(applight-shot PRIVATE ${X11_LIBRARIES})
+
+# find_package( Qt5 COMPONENTS X11Extras REQUIRED)
+# target_link_libraries(applight-shot PRIVATE Qt5::X11Extras)
+pkg_check_modules(XCB REQUIRED xcb)
+target_link_libraries(applight-shot PRIVATE ${XCB_LIBRARIES})
+target_include_directories(applight-shot PRIVATE ${XCB_INCLUDE_DIRS})
 
 qt_add_qml_module(
   applight-shot
@@ -38,7 +46,9 @@ qt_add_qml_module(
   imagesaver.cpp
   windowundercursor.h
   windowundercursor.cpp
-  QML_FILES Windowundercursor_.qml)
+  QML_FILES
+  Windowundercursor_.qml
+  SOURCES)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 

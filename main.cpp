@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "screenshotprovider.h"
+#include "windowrect.h"
 #include "windowundercursor.h"
 int main(int argc, char *argv[])
 {
@@ -8,7 +9,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.addImageProvider("screenshot", new ScreenshotProvider);
-    qmlRegisterType<WindowUnderCursor>("Windowundercursor", 1, 0, "WindowUnderCursor");
+    qmlRegisterType<WindowUnderCursor>("Windowrect", 1, 0, "WindowUnderCursor");
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,
