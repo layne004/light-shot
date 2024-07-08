@@ -1,5 +1,5 @@
 #include "windowundercursor.h"
-
+#include "undercursormannager.h"
 WindowUnderCursor::WindowUnderCursor(QObject *parent)
     : QObject{parent}
 {
@@ -34,6 +34,8 @@ QImage WindowUnderCursor::captureWindowUnderCursor()
 
 void WindowUnderCursor::savecapture()
 {
+    ScreenshotManager s = new ScreenshotManager();
+    s->startListening();
     qDebug() << "savecapture";
     qDebug() << "";
     QImage image = captureWindowUnderCursor();
@@ -53,5 +55,5 @@ void WindowUnderCursor::savecapture()
     } else {
         qDebug() << "保存图像失败。";
     }
-    // s->stopListening();
+    // s->stopListening();//这里是最开始程序一运行屏幕就卡住，只能关机，win建都不能运行
 }
