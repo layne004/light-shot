@@ -166,11 +166,11 @@ ApplicationWindow {
                 onTriggered: mainWindow.show();
             }
             MenuSeparator{}
-            // MenuItem{
-            //     text: qsTr("About")
-            //     // onTriggered:
-            // }
-            // MenuSeparator{}
+            MenuItem{
+                text: qsTr("About")
+                onTriggered: {loader.source = "AboutWindow.qml"; loader.item.show()}
+            }
+            MenuSeparator{}
             MenuItem{
                 text: qsTr("Quit")
                 onTriggered: {shouldClose = true; Qt.quit();}

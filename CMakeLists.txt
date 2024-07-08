@@ -41,7 +41,8 @@ qt_add_qml_module(
   rectscreenshot.js
   QML_FILES
   PinWindow.qml
-  IrregularWindow.qml)
+  IrregularWindow.qml
+  AboutWindow.qml)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 
