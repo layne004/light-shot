@@ -34,8 +34,6 @@ QImage WindowUnderCursor::captureWindowUnderCursor()
 
 void WindowUnderCursor::savecapture()
 {
-    ScreenshotManager *s = new ScreenshotManager(this);
-    s->startListening();
     qDebug() << "savecapture";
     qDebug() << "";
     QImage image = captureWindowUnderCursor();
