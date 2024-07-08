@@ -107,11 +107,12 @@ ApplicationWindow {
         id:actions
         rectRegion.onTriggered: Controller.selectRect()
         windowUnderCursor.onTriggered:{
-            Controller.windowundercur()
+            console.log("111")
+            windowunder.savecapture()//实现的地方
         }
     }
 
-    WindowRect{
+    WindowUnderCursor{
         id :windowunder
     }
 

@@ -48,7 +48,8 @@ qt_add_qml_module(
   windowundercursor.cpp
   QML_FILES
   Windowundercursor_.qml
-  SOURCES)
+  SOURCES
+  SOURCES windowrect.h windowrect.cpp)
 
 target_compile_features(applight-shot PRIVATE cxx_std_20)
 

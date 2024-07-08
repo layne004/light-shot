@@ -4,8 +4,7 @@ function selectRect() {
 }
 function windowundercur(){
 mainWindow.hide();
-    console.log("111")
-    windowunder.show()//实现的地方
+
     mainwindow.show();
 }
 

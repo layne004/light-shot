@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.addImageProvider("screenshot", new ScreenshotProvider);
-    qmlRegisterType<WindowUnderCursor>("Windowrect", 1, 0, "WindowUnderCursor");
+    qmlRegisterType<WindowRect>("Windowrect", 1, 0, "WindowRect");
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,
